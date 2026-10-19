@@ -1,5 +1,5 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://de-eauto.example";
+export const SITE_URL = "https://stromerpraemie.de";
 export const SITE_NAMES: Record<string, string> = {"de": "Stromerprämie", "en": "Stromerprämie"};
 export const LANG_TAGS: Record<string, string> = {"de": "de-DE", "en": "en-DE"};
 export const OG_LOCALES: Record<string, string> = {"de": "de_DE", "en": "en_GB"};
@@ -18,7 +18,7 @@ export const AUTHOR_DESC: Record<string, string> = {"de": "Radif Partners rechne
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"de": ["Sozial gestaffelte E-Auto-Förderung (Richtlinie vom 19. Mai 2026)", "Zu versteuerndes Einkommen nach § 2 Abs. 5 EStG", "THG-Quote für Elektroautos (38. BImSchV)", "Kfz-Steuerbefreiung für Elektrofahrzeuge (§ 3d KraftStG)"], "en": ["Germany's income-based EV purchase grant (guideline of 19 May 2026)", "Taxable income under section 2(5) of the Income Tax Act", "GHG quota trading for electric cars (38th BImSchV)", "Vehicle tax exemption for electric cars (section 3d KraftStG)"]};
-export const CONTACT_EMAIL = "kontakt@de-eauto.example";
+export const CONTACT_EMAIL = "kontakt@stromerpraemie.de";
 export const THEME_COLOR = '#0B6B5A';
 export const LOGO_SYMBOL = 'eclair';
 export const BING_VERIFY_CODE = '';
