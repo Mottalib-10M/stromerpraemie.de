@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'en';
+const description = 'Write to us if a grant amount or list price is out of date, your grant decision differs from the calculator, a model is missing or you would like to embed the calculator.';
+---
+<PageLayout title={`Contact ${SITE_NAMES[lang]}: report an error, embed a calculator`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We usually reply within a week.</p>
+    <h2>Your decision differs from the calculator</h2>
+    <p>Send the share link from the calculator and the line from your grant decision, without your name, tax ID or file number. The difference often comes from a different tax year, a child that was not counted, or a person who was counted as part of the household. If the mistake is ours, we fix it and add the case as a test.</p>
+    <h2>A list price has changed</h2>
+    <p>Send the link to the manufacturer's price list with its date. We only take prices from manufacturer sources, not from dealer offers.</p>
+    <h2>Embedding the calculator</h2>
+    <p>Motoring clubs, energy suppliers, councils and newsrooms can embed the grant calculator free of charge: <a href={route('widget', lang)}>embed a calculator</a>.</p>
+    <h2>What we do not do</h2>
+    <p>No individual advice, no applications on your behalf, no brokering of cars, leases or GHG quota providers. Questions about your application go to BAFA.</p>
+  </div>
+</PageLayout>

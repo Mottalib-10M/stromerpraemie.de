@@ -1,0 +1,26 @@
+# Bundesamt für Wirtschaft und Ausfuhrkontrolle : Bewilligungsbehörde der E-Auto-Förderung (Richtlinie vom 19.05.2026, Nr. 7)
+bafa.de
+
+# Kraftfahrt-Bundesamt : Neuzulassungsstatistik FZ10 (amtliche Statistik, Datenlizenz Deutschland)
+kba.de
+
+# Umweltbundesamt : Bescheinigung der Strommengen nach § 7 der 38. BImSchV (THG-Quote)
+umweltbundesamt.de
+
+# Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit : Fördergeber der E-Auto-Förderung
+bundesumweltministerium.de
+
+# Bundesministerium für Verkehr : Fördergeber des Programms Ladeinfrastruktur in Mehrparteienhäusern
+bmv.de
+
+# Deutscher Bundestag : Gesetzgebungsverfahren zur Weiterentwicklung der THG-Quote
+bundestag.de
+
+# KfW, Förderbank des Bundes : Programmseiten der beendeten Ladestationsförderung 440 und 442
+kfw.de
+
+# Förderportal des BMV-Programms Ladeinfrastruktur in Mehrparteienhäusern, Förderaufruf und Antrag (Projektträger im Auftrag des BMV)
+laden-im-mehrparteienhaus.de
+
+# Bundesanzeiger : amtliche Bekanntmachung der Förderrichtlinie und der UBA-Werte
+bundesanzeiger.de

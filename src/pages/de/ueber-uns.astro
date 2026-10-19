@@ -1,0 +1,33 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE, SITE_NAMES, LANG_TAGS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate, formatMoney, formatNumber } from '../../lib/format';
+import { P } from '../../lib/engine/params';
+import M from '../../data/modelle.json';
+const lang = 'de';
+const F = P.foerderung;
+---
+<PageLayout title="Stromerprämie: wer die Rechner zur E-Auto-Förderung macht" description="Wer hinter den Rechnern zu E-Auto-Förderung, Preis nach Förderung, THG-Prämie und Kfz-Steuer steht, woher die Zahlen kommen, wie geprüft wird und woran wir nichts verdienen." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Start', path: route('home', lang) }, { name: 'Über uns', path: route('about', lang) }])]} breadcrumbs={[{ label: 'Über uns' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">Über {SITE_NAMES.de}</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>{SITE_NAMES.de} wird von Radif Partners herausgegeben, einem unabhängigen Herausgeber von Rechnern. Wir sind nicht das BAFA, kein Ministerium und keine andere Stelle des Bundes. Der Anlass für diese Seite war eine einfache Frage, die beim Lesen der Suchergebnisse offen blieb: Wie viel bekommt ein bestimmter Haushalt, wenn zwei Erwachsene mit unterschiedlichen Steuerbescheiden ein bestimmtes Auto kaufen, und bis wann müssen sie was tun? Die amtlichen Seiten nennen die Regeln, aber sie rechnen den Fall nicht. Andere Seiten rechnen, aber nannten im Oktober 2026 noch ein Antragsportal „ab Mai 2026“, eine Höchstförderung von 4.000 € oder eine Haltedauer von 12 bis 24 Monaten.</p>
+    <h2>Warum diese Seite besser rechnet als der erste Treffer</h2>
+    <p>Diese Seite macht es besser als das erste Suchergebnis, weil sie das rechnet, was die amtlichen Seiten nur beschreiben: den Betrag Ihres Haushalts aus dem Durchschnitt der zwei letzten Steuerbescheide jeder erwachsenen Person, mit der Kinderzahl und der Antriebsart, den Preis nach Förderung für {M.modelle.filter((m) => m.preis).length} Modelle mit datiertem Listenpreis des Herstellers, die Antragsfrist von {F.antragsfrist_monate} Monaten und die Haltedauer von {F.haltedauer_monate} Monaten als Kalendermonat, und die Grenzfälle, an denen Käufer scheitern: Leasing, unverheiratete Paare, Kinder im Wechselmodell, Rentner ohne Steuerbescheid, Zuzug aus dem Ausland.</p>
+    <h2>Woher die Zahlen kommen</h2>
+    <p>Grundlage ist die Förderrichtlinie vom 19. Mai 2026 in der Fassung im Bundesanzeiger und die Seiten des BAFA zu Voraussetzungen, Antrag und Nachweisen. Dazu kommen die Bewilligungsstatistik des Programms ({formatNumber(F.bewilligungen, 0, lang)} Bewilligungen, Stand 1. Oktober 2026), die Neuzulassungen des Kraftfahrt-Bundesamts je Modellreihe und Monat sowie die Preislisten der Hersteller. Für die Kfz-Steuer gelten §§ 3d und 9 KraftStG, für die THG-Quote die 38. BImSchV und die Bekanntmachungen des Umweltbundesamts. Wie jede Zahl entsteht, steht unter <a href={route('method', lang)}>So rechnen wir</a>.</p>
+    <h2>Wie geprüft wird</h2>
+    <p>Alle Felder der Fördertabelle für Elektroautos und Plug-in-Hybride, jede Einkommensgrenze links und rechts der Schwelle, die Zulassungszeiträume bis {F.bev_erstzulassung_bis.slice(0, 4)} und die Kfz-Steuer je 200 kg laufen als automatische Tests. Ein abweichender Wert stoppt die Veröffentlichung.</p>
+    <h2>Was wir nicht sind</h2>
+    <p>Kein Autohaus, keine Leasinggesellschaft, kein THG-Anbieter, keine Steuerberatung. Wir verkaufen keine Autos und vermitteln keine Verträge. Die Höchstförderung von {formatMoney(F.bev[0][2], 0, lang)} ist keine Zusage: Verbindlich ist allein der Zuwendungsbescheid, und auf die Förderung besteht kein Rechtsanspruch.</p>
+    <h2>Finanzierung und Ihre Daten</h2>
+    <p>Die Rechner sind kostenlos. Einkommen, Kinderzahl und Kaufpreis, die Sie eintippen, bleiben in Ihrem Browser. Falls die Seite einmal Werbung zeigt, dann nie über einem Rechner und nie im Ergebnis.</p>
+    <h2>Auf Englisch</h2>
+    <p>Jede Seite gibt es auf Englisch, geschrieben für Menschen aus dem Ausland, die in Deutschland leben: Begriffe wie zu versteuerndes Einkommen, Kindergeld oder BundID werden erklärt, und die Fälle ohne deutschen Steuerbescheid stehen dort ausführlicher.</p>
+    <h2>Kontakt</h2>
+    <p>Ein Wert stimmt nicht, Ihr Bescheid weicht ab, ein Modell fehlt? Schreiben Sie an <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Siehe auch die <a href={route('editorial', lang)}>Redaktionsgrundsätze</a> und das <a href={route('terms', lang)}>Impressum</a>.</p>
+    <p class="text-sm text-navy-600">Stand {YEAR}, geprüft am <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, LANG_TAGS[lang])}</time>.</p>
+  </div>
+</PageLayout>

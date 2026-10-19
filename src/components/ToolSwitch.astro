@@ -1,0 +1,15 @@
+---
+/** Ein Ort, an dem jede Rechnerart ihrem Komponenten zugeordnet wird (Rechnerseiten, Modellseiten, Einbettung). */
+import PraemienRechner from './calc/PraemienRechner';
+import ThgRechner from './calc/ThgRechner';
+import KfzRechner from './calc/KfzRechner';
+import ModellListe from './calc/ModellListe';
+import type { Locale } from '../i18n/routes';
+import type { Tool } from '../lib/guide-types';
+interface Props { tool?: Tool; lang: Locale; methodHref?: string; preset?: Record<string, never> }
+const { tool, lang, methodHref, preset = {} } = Astro.props;
+---
+{tool === 'praemie' && <PraemienRechner client:load lang={lang} methodHref={methodHref} preset={preset} />}
+{tool === 'thg' && <ThgRechner client:load lang={lang} methodHref={methodHref} />}
+{tool === 'kfz' && <KfzRechner client:load lang={lang} methodHref={methodHref} preset={preset} />}
+{tool === 'modelle' && <ModellListe client:load lang={lang} methodHref={methodHref} preset={preset} />}

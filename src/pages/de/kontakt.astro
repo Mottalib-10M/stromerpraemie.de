@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'de';
+const description = 'Schreiben Sie uns, wenn ein Förderbetrag oder Listenpreis veraltet ist, Ihr Zuwendungsbescheid vom Rechner abweicht, ein Modell fehlt oder Sie den Rechner einbinden möchten.';
+---
+<PageLayout title={`Kontakt zu ${SITE_NAMES[lang]}: Fehler melden, Rechner einbinden`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Kontakt', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Kontakt' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Kontakt</h1>
+    <p>E-Mail: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Antwort meist innerhalb einer Woche.</p>
+    <h2>Ihr Bescheid weicht vom Rechner ab</h2>
+    <p>Schicken Sie den Teilen-Link aus dem Rechner und die Zeile aus dem Zuwendungsbescheid, ohne Namen, Steuer-ID und Aktenzeichen. Häufig liegt der Unterschied an einem anderen Steuerjahr, an einem Kind, das nicht als förderrelevant gezählt wurde, oder an einer Person, die zum Haushalt gerechnet wurde. Liegt er bei uns, korrigieren wir und nehmen den Fall als Test auf.</p>
+    <h2>Ein Listenpreis hat sich geändert</h2>
+    <p>Senden Sie den Link auf die Preisliste des Herstellers mit Datum. Wir übernehmen nur Preise aus Quellen des Herstellers, nicht aus Händlerangeboten.</p>
+    <h2>Rechner einbinden</h2>
+    <p>Autoclubs, Energieversorger, Gemeinden und Redaktionen können den Prämienrechner kostenlos einbinden: <a href={route('widget', lang)}>Rechner einbinden</a>.</p>
+    <h2>Was wir nicht leisten</h2>
+    <p>Keine Beratung im Einzelfall, keine Antragstellung für Sie, keine Vermittlung von Autos, Leasingverträgen oder THG-Anbietern. Fragen zu Ihrem Antrag beantwortet das BAFA.</p>
+  </div>
+</PageLayout>

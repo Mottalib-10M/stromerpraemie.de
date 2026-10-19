@@ -1,0 +1,33 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE, SITE_NAMES, LANG_TAGS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate, formatMoney, formatNumber } from '../../lib/format';
+import { P } from '../../lib/engine/params';
+import M from '../../data/modelle.json';
+const lang = 'en';
+const F = P.foerderung;
+---
+<PageLayout title="Stromerprämie: who builds these German EV grant calculators" description="Who is behind the calculators for Germany's EV grant, the price after the grant, the GHG quota payout and vehicle tax, where the figures come from and how they are checked." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path: route('about', lang) }])]} breadcrumbs={[{ label: 'About' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">About {SITE_NAMES.en}</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>{SITE_NAMES.en} is published by Radif Partners, an independent publisher of calculators. We are not BAFA, not a ministry and not any other federal body. The site started from a question the search results left open: how much does one particular household get when two adults with different tax assessments buy one particular car, and what do they have to do by when? The official pages state the rules but do not work out the case. Other pages do the sums, but in October 2026 some still announced an application portal "from May 2026", a maximum grant of €4,000 or a holding period of 12 to 24 months.</p>
+    <h2>Why this site does better than the first search result</h2>
+    <p>This site does better than the first Google result because it calculates what the official pages only describe: your household's amount from the average of each adult's last two tax assessments, with the number of children and the drive type, the price after the grant for {M.modelle.filter((m) => m.preis).length} models with a dated manufacturer list price, the {F.antragsfrist_monate}-month application deadline and the {F.haltedauer_monate}-month holding period as calendar months, and the edge cases where buyers come unstuck: leasing, unmarried couples, children living in two homes, pensioners without a tax assessment and people who have just moved to Germany.</p>
+    <h2>Where the figures come from</h2>
+    <p>The basis is the funding guideline of 19 May 2026 as published in the Federal Gazette and the BAFA pages on eligibility, applying and documents. On top come the programme's approval statistics ({formatNumber(F.bewilligungen, 0, lang)} approvals as of 1 October 2026), the Federal Motor Transport Authority's registrations per model range and month, and the manufacturers' price lists. Vehicle tax follows sections 3d and 9 of the Vehicle Tax Act, the GHG quota the 38th BImSchV and the Federal Environment Agency's notices. Every step is set out under <a href={route('method', lang)}>how we calculate</a>.</p>
+    <h2>How it is checked</h2>
+    <p>Every cell of the grant table for battery electric cars and plug-in hybrids, every income limit on both sides of the threshold, the registration periods up to {F.bev_erstzulassung_bis.slice(0, 4)} and the vehicle tax per 200 kg run as automated tests. A value that drifts stops the release.</p>
+    <h2>What we are not</h2>
+    <p>Not a dealer, not a leasing company, not a GHG quota provider and not a tax adviser. We sell no cars and broker no contracts. The maximum of {formatMoney(F.bev[0][2], 0, lang)} is not a promise: only the grant decision (Zuwendungsbescheid) is binding, and there is no legal entitlement to the grant.</p>
+    <h2>Funding and your data</h2>
+    <p>The calculators are free. The income, number of children and price you type stay in your browser. If the site ever shows advertising, it will never sit above a calculator or inside a result.</p>
+    <h2>In German</h2>
+    <p>Every page also exists in German. The English pages are written for people from abroad who live in Germany: terms such as taxable income (zu versteuerndes Einkommen), child benefit (Kindergeld) or BundID are explained, and the cases without a German tax assessment get more room.</p>
+    <h2>Contact</h2>
+    <p>A value is wrong, your decision differs, a model is missing? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. See also the <a href={route('editorial', lang)}>editorial policy</a> and the <a href={route('terms', lang)}>legal notice</a>.</p>
+    <p class="text-sm text-navy-600">As of {YEAR}, checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, LANG_TAGS[lang])}</time>.</p>
+  </div>
+</PageLayout>

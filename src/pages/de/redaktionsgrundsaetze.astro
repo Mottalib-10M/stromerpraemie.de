@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'de';
+---
+<PageLayout title={`Redaktionsgrundsätze von ${SITE_NAMES[lang]}: Quellen und Prüfung`} description="Woher Förderbeträge, Einkommensgrenzen, Fristen, Listenpreise und Zulassungszahlen kommen, wann sie geprüft werden, wie Ankündigungen behandelt werden, was bei Fehlern geschieht." lang={lang} noindex={true} breadcrumbs={[{ label: 'Redaktionsgrundsätze' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Redaktionsgrundsätze und Korrekturen</h1>
+    <p>Wer einen Kaufvertrag mit einer Förderung im Kopf unterschreibt, die ihm dann nicht zusteht, zahlt die Differenz selbst. Deshalb steht hier, woher jede Zahl kommt und was passiert, wenn eine nicht stimmt.</p>
+    <h2>Verantwortung</h2><p>Inhalte und Rechner verantwortet {AUTHOR_NAME}. Kontakt: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Nur Primärquellen</h2>
+    <ul>
+      <li><strong>Förderrichtlinie vom 19. Mai 2026</strong> (Bundesanzeiger) und die Seiten des <strong>BAFA</strong> zu Voraussetzungen, Antrag, Nachweisen und Statistik;</li>
+      <li><strong>gesetze-im-internet.de</strong>: Einkommensteuergesetz, Kraftfahrzeugsteuergesetz und 38. BImSchV in der geltenden Fassung;</li>
+      <li><strong>Umweltbundesamt</strong>, <strong>Kraftfahrt-Bundesamt</strong>, <strong>Bundesministerium für Verkehr</strong> und <strong>Deutscher Bundestag</strong>: Schätzwerte der THG-Quote, Neuzulassungen, Ladeförderung, Gesetzgebung;</li>
+      <li><strong>Preislisten der Hersteller</strong> für Listenpreise, jeweils mit Lesedatum. Marktpreise der THG-Prämie stammen aus benannten Vergleichen und tragen ihr Datum.</li>
+    </ul>
+    <p>Andere Rechner, Ratgeberportale, Autohäuser und Presseberichte sind keine Quelle für Rechtswerte, auch wenn sie in den Suchergebnissen oben stehen.</p>
+    <h2>Vorschläge und Entwürfe</h2><p>Angekündigte Förderaufrufe, Entwürfe und Zahlen für 2027 und später werden als angekündigt bezeichnet, datiert und nie in die Rechner übernommen, solange sie nicht im Bundesanzeiger oder auf den Seiten des BAFA stehen.</p>
+    <h2>Prüfung vor jeder Veröffentlichung</h2><p>Alle Felder der Fördertabelle, die Einkommensgrenzen an jeder Stufe, die Zulassungszeiträume, die Fristen und die Kfz-Steuer laufen als automatische Tests. Ein abweichender Wert stoppt die Veröffentlichung.</p>
+    <h2>Rhythmus</h2><p>Vollständige Durchsicht mindestens alle {REVIEW_CYCLE_MONTHS} Monate, dazu bei jeder neuen Statistik des BAFA, jeder Monatsstatistik des KBA, jeder Änderung der Richtlinie und jeder Gesetzesänderung.</p>
+    <h2>Umgang mit Fehlern</h2>
+    <ol><li>Prüfung an der Primärquelle.</li><li>Korrektur in der Parameterdatei oder im Rechner und ein neuer Test.</li><li>Neues Datum auf allen Seiten; eine inhaltliche Korrektur wird auf der Seite vermerkt.</li></ol>
+    <h2>Unabhängigkeit</h2><p>Kein Geld von Herstellern, Autohäusern, Leasinggesellschaften oder THG-Anbietern. Keine Kaufempfehlung für ein Modell.</p>
+    <p>Siehe auch <a href={route('method', lang)}>So rechnen wir</a>. Fassung: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

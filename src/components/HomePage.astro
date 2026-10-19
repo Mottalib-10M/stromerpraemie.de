@@ -1,0 +1,107 @@
+---
+/**
+ * Startseite (Säule, RECETTE §5), eigene Trame: Rechtsgrundlage in einer Zeile, sofort der Prämienrechner
+ * (ohne Scrollen sichtbar), der zitierbare Absatz (eingeklappt), die Treppe der Förderstufen aus params-2026.json,
+ * die meistbewilligten Modelle mit Preis nach Förderung (BAFA × KBA × Herstellerpreis), die Bewilligungen nach
+ * Einkommen, dann der Text mit Mini-Rechnern und die FAQ.
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import PraemienRechner from './calc/PraemienRechner';
+import MiniSim from './calc/MiniSim';
+import Clamp from './Clamp.astro';
+import { HOME } from '../content/home';
+import { route, ROUTES, type Locale } from '../i18n/routes';
+import { label } from '../i18n/nav';
+import { helpers } from '../lib/helpers';
+import { P, type SourceKey } from '../lib/engine/params';
+import { tabelle, betragTabelle } from '../lib/engine/foerderung';
+import { datumText } from '../lib/engine/datum';
+import M from '../data/modelle.json';
+import { formatMoney, formatNumber } from '../lib/format';
+import { faqSchema, organizationSchema, websiteSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const de = lang === 'de';
+const x = HOME[lang];
+const h = helpers(lang);
+const path = route('home', lang);
+const parts = x.body(h).split(/<!--mini:([A-Za-z0-9_]+)-->/);
+const faqs = x.faqs(h);
+const keys: SourceKey[] = ['richtlinie', 'bafaVoraussetzungen', 'bafaFaq', 'bafaAntrag', 'bafaStatistik', 'bmukn', 'breg', 'foerderzentrale', 'estg2', 'kba'];
+const sources = keys.map((k) => ({ name: P.sources[k].label[lang], url: P.sources[k].url }));
+const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang }), faqSchema(faqs, lang)];
+const $ = (n: number) => formatMoney(n, 0, lang);
+const n = (v: number) => formatNumber(v, 0, lang);
+const has = (id: string) => ROUTES.some((r) => r.id === id);
+const r = (id: string) => (has(id) ? route(id, lang) : undefined);
+const F = P.foerderung;
+const tb = tabelle('bev'), tp = tabelle('phev');
+const MAX = betragTabelle(0, F.max_kinder, 'bev');
+const stufenLabel = (z: { von: number; bis: number }) => (z.von === 0 ? `${de ? 'bis' : 'up to'} ${$(z.bis)}` : `${$(z.von)} ${de ? 'bis' : 'to'} ${$(z.bis)}`);
+const top = M.modelle.filter((m) => m.preis).slice(0, 8);
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} sources={sources}>
+  <header class="mb-4">
+    <p class="text-sm font-semibold uppercase tracking-wide text-accent-800">{de ? `Richtlinie vom ${datumText(F.richtlinie_datum, 'de')} · bis ${$(MAX)} je Haushalt` : `Guideline of ${datumText(F.richtlinie_datum, 'en')} · up to ${$(MAX)} per household`}</p>
+    <h1 class="mt-1 text-3xl font-bold text-navy-900 md:text-[2.5rem] md:leading-tight">{x.h1}</h1>
+    <p class="mt-2 text-lg text-navy-700">{x.intro}</p>
+    <p class="mt-2 text-sm text-navy-700">
+      {de ? 'Unabhängig, nicht das BAFA' : 'Independent, not BAFA'} · <a class="underline" href={route('method', lang)}>{label('method', lang)}</a> · <a class="underline" href={route('about', lang)}>{label('about', lang)}</a>
+    </p>
+  </header>
+  <section id="rechner" data-outil aria-label={de ? 'Prämienrechner' : 'Grant calculator'}>
+    <PraemienRechner client:load lang={lang} methodHref={route('method', lang)} />
+  </section>
+  <section class="mt-8" aria-labelledby="kurz">
+    <h2 id="kurz" class="sr-only">{de ? 'Kurz gesagt' : 'In short'}</h2>
+    <Clamp text={x.resume(h)} lang={lang} id="clamp-home" sentences={2} />
+  </section>
+  <section class="mt-10 border-t border-navy-200 pt-6" aria-labelledby="treppe" data-chrome>
+    <h2 id="treppe" class="text-2xl font-bold text-navy-900">{de ? 'Die Förderung in fünf Einkommensstufen' : 'The grant in five income bands'}</h2>
+    <p class="mt-2 text-navy-700">{de ? 'Dunkel: Elektroauto, hell: Plug-in-Hybrid. Je Zeile ohne Kind, mit einem und mit zwei Kindern unter 18.' : 'Dark: battery electric, light: plug-in hybrid. Each row without children, with one and with two children under 18.'}</p>
+    <div class="mt-4 overflow-x-auto">
+      <table class="journal w-full text-sm">
+        <thead><tr><th scope="col" class="py-2 pr-3 text-left">{de ? 'Haushaltseinkommen (zvE)' : 'Household taxable income'}</th>{[0, 1, 2].map((k) => <th scope="col" class="py-2 pr-3 text-left">{k === 0 ? (de ? 'ohne Kind' : 'no child') : k === 1 ? (de ? '1 Kind' : '1 child') : (de ? '2 Kinder' : '2 children')}</th>)}</tr></thead>
+        <tbody>
+          {tb.map((z, i) => (
+            <tr class="border-t border-navy-200">
+              <th scope="row" class="tabular-nums py-2 pr-3 text-left font-medium text-navy-900">{stufenLabel(z)}</th>
+              {z.betraege.map((b, k) => (
+                <td class="py-2 pr-3 align-top">
+                  {b > 0 ? (<>
+                    <span class="stufe-bar block h-2 w-full max-w-[10rem] rounded"><span class="stufe-fill block h-2 rounded" style={`width:${(b / MAX) * 100}%`}></span></span>
+                    <span class="tabular-nums mt-1 block font-semibold text-navy-900">{$(b)}</span>
+                    <span class="stufe-bar mt-1 block h-1.5 w-full max-w-[10rem] rounded"><span class="stufe-fill-phev block h-1.5 rounded" style={`width:${(tp[i].betraege[k] / MAX) * 100}%`}></span></span>
+                    <span class="tabular-nums block text-xs text-navy-700">Plug-in {$(tp[i].betraege[k])}</span>
+                  </>) : <span class="text-navy-600">{de ? 'keine' : 'none'}</span>}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-2 text-sm text-navy-700">{de ? `Elektroautos mit Erstzulassung bis ${datumText(F.bev_erstzulassung_bis, 'de')}, Plug-in-Hybride bis ${datumText(F.phev_erstzulassung_bis, 'de')}. Grenzen eingeschlossen: ${$(F.grenzen[0])} gehört noch zur ersten Stufe.` : `Battery electric cars first registered until ${datumText(F.bev_erstzulassung_bis, 'en')}, plug-in hybrids until ${datumText(F.phev_erstzulassung_bis, 'en')}. Limits are inclusive: ${$(F.grenzen[0])} still belongs to the first band.`}</p>
+  </section>
+  <section class="mt-10 border-t border-navy-200 pt-6" aria-labelledby="modelle" data-chrome>
+    <h2 id="modelle" class="text-2xl font-bold text-navy-900">{de ? 'Die meistbewilligten Modelle mit Listenpreis' : 'The most approved models with a list price'}</h2>
+    <p class="mt-2 text-navy-700">{de ? `Bewilligungen bis ${datumText(M.bafa_stand, 'de')} (BAFA), Neuzulassungen Januar bis ${M.kba_bis_text.de} (KBA), Preis nach der Höchstförderung von ${$(betragTabelle(0, 0, 'bev'))} für einen Haushalt ohne Kind bis ${$(F.grenzen[0])}.` : `Approvals up to ${datumText(M.bafa_stand, 'en')} (BAFA), registrations January to ${M.kba_bis_text.en} (KBA), price after the ${$(betragTabelle(0, 0, 'bev'))} grant for a childless household up to ${$(F.grenzen[0])}.`}</p>
+    <div class="mt-4 overflow-x-auto">
+      <table class="journal w-full text-sm">
+        <thead><tr><th scope="col" class="py-2 pr-3 text-left">{de ? 'Modell' : 'Model'}</th><th scope="col" class="py-2 pr-3 text-right">{de ? 'Listenpreis' : 'List price'}</th><th scope="col" class="py-2 pr-3 text-right">{de ? 'Nach Förderung' : 'After grant'}</th><th scope="col" class="hidden py-2 pr-3 text-right sm:table-cell">{de ? 'Bewilligungen' : 'Approvals'}</th><th scope="col" class="hidden py-2 text-right sm:table-cell">{de ? 'Neuzulassungen' : 'Registrations'}</th></tr></thead>
+        <tbody>{top.map((m) => (
+          <tr class="border-t border-navy-200">
+            <th scope="row" class="py-2 pr-3 text-left font-medium text-navy-900">{r(m.id) ? <a class="underline" href={r(m.id)}>{m.marke} {m.name}</a> : <>{m.marke} {m.name}</>}</th>
+            <td class="tabular-nums py-2 pr-3 text-right">{$(m.preis!)}</td>
+            <td class="tabular-nums py-2 pr-3 text-right font-semibold">{$(m.preis! - betragTabelle(0, 0, m.antrieb as 'bev'))}</td>
+            <td class="tabular-nums hidden py-2 pr-3 text-right sm:table-cell">{n(m.bafa)}</td>
+            <td class="tabular-nums hidden py-2 text-right sm:table-cell">{n(m.kba_summe)}</td>
+          </tr>))}</tbody>
+      </table>
+    </div>
+    {r('foerderfaehige-modelle') && <a class="mt-3 inline-block text-sm font-medium text-accent-800 underline" href={r('foerderfaehige-modelle')}>{de ? `Alle ${M.modelle.filter((m) => m.preis).length} Modelle mit Ihrem Einkommen rechnen` : `Work out all ${M.modelle.filter((m) => m.preis).length} models with your income`}</a>}
+  </section>
+  <div class="prose prose-slate mt-10 max-w-none border-t border-navy-200 pt-4">
+    {parts.map((p, i) => i % 2 === 0 ? <Fragment set:html={p} /> : <MiniSim client:load kind={p} lang={lang} href={route('home', lang) + '#rechner'} />)}
+  </div>
+</PageLayout>

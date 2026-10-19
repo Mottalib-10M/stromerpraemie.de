@@ -1,0 +1,21 @@
+{
+ "name": "Stromerprämie",
+ "short_name": "Stromerprämie",
+ "description": "E-Auto-Förderung 2026 je Haushalt: Zuschuss nach Einkommen, Kindern und Antrieb, Nettopreis je Modell, THG-Prämie und Kfz-Steuerbefreiung, nachgerechnet.",
+ "start_url": "/de/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#0B6B5A",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

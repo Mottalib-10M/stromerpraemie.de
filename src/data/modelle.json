@@ -1,0 +1,801 @@
+{
+ "_quelle": "Generiert von scripts/build-modelle.py. KBA FZ10 (Datenlizenz Deutschland – Namensnennung 2.0, © Kraftfahrt-Bundesamt), BAFA-Statistik vom 1. Oktober 2026, Listenpreise der Hersteller.",
+ "kba_bis_monat": 9,
+ "kba_bis_text": {
+  "de": "September 2026",
+  "en": "September 2026"
+ },
+ "kba_veroeffentlicht": "2026-10-07",
+ "bafa_stand": "2026-10-01",
+ "preise_gelesen": "2026-10-19",
+ "modelle": [
+  {
+   "id": "tesla-model-y",
+   "marke": "Tesla",
+   "name": "Model Y",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 8297,
+   "kba": [
+    1119,
+    1340,
+    6841,
+    1968,
+    2410,
+    6023,
+    299,
+    1426,
+    8038
+   ],
+   "kba_summe": 29464
+  },
+  {
+   "id": "skoda-elroq",
+   "marke": "Skoda",
+   "name": "Elroq",
+   "antrieb": "bev",
+   "version": {
+    "de": "Elroq 60 Essence, 140 kW",
+    "en": "Elroq 60 Essence, 140 kW"
+   },
+   "preis": 37890,
+   "batterie": null,
+   "reichweite": 453,
+   "quelle": "https://www.skoda-auto.de/_doc/0bba92d6-fb41-4dbe-b44b-cf4e0edd8848",
+   "gelesen": "2026-10-19",
+   "bafa": 5710,
+   "kba": [
+    3121,
+    3406,
+    3872,
+    3341,
+    3083,
+    3315,
+    3541,
+    3038,
+    4182
+   ],
+   "kba_summe": 30899
+  },
+  {
+   "id": "tesla-model-3",
+   "marke": "Tesla",
+   "name": "Model 3",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 3845,
+   "kba": [
+    162,
+    872,
+    2356,
+    1134,
+    2664,
+    1708,
+    56,
+    1605,
+    4512
+   ],
+   "kba_summe": 15069
+  },
+  {
+   "id": "leapmotor-t03",
+   "marke": "Leapmotor",
+   "name": "T03",
+   "antrieb": "bev",
+   "version": {
+    "de": "T03 Smart, 37,3 kWh",
+    "en": "T03 Smart, 37.3 kWh"
+   },
+   "preis": 18900,
+   "batterie": 37.3,
+   "reichweite": 275,
+   "quelle": "https://www.leapmotor.net/docs/default-source/t03-library/preisliste-leapmotor-t03-my27-d-20261001-v20261001.pdf?sfvrsn=2c7e7489_38",
+   "gelesen": "2026-10-19",
+   "bafa": 3561,
+   "kba": [
+    327,
+    566,
+    711,
+    593,
+    597,
+    1912,
+    1535,
+    731,
+    798
+   ],
+   "kba_summe": 7770
+  },
+  {
+   "id": "vw-id3",
+   "marke": "Volkswagen",
+   "name": "ID.3",
+   "antrieb": "bev",
+   "version": {
+    "de": "ID.3 Neo, Einstiegsversion",
+    "en": "ID.3 Neo, entry version"
+   },
+   "preis": 33995,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": "https://www.volkswagen.de/de/modelle/id3.html",
+   "gelesen": "2026-10-19",
+   "bafa": 3541,
+   "kba": [
+    2405,
+    2455,
+    3298,
+    3518,
+    3050,
+    3514,
+    2220,
+    1467,
+    2425
+   ],
+   "kba_summe": 24352
+  },
+  {
+   "id": "hyundai-inster",
+   "marke": "Hyundai",
+   "name": "Inster",
+   "antrieb": "bev",
+   "version": {
+    "de": "Inster Select, 42 kWh",
+    "en": "Inster Select, 42 kWh"
+   },
+   "preis": 24650,
+   "batterie": 42,
+   "reichweite": 327,
+   "quelle": "https://www.hyundai.com/de/de/modelle/inster/varianten-und-preise.html",
+   "gelesen": "2026-10-19",
+   "bafa": 3337,
+   "kba": [
+    694,
+    918,
+    1315,
+    1520,
+    1423,
+    1187,
+    1294,
+    878,
+    890
+   ],
+   "kba_summe": 10119
+  },
+  {
+   "id": "bmw-ix1",
+   "marke": "BMW",
+   "name": "iX1",
+   "antrieb": "bev",
+   "version": {
+    "de": "iX1 eDrive20, 65,2 kWh",
+    "en": "iX1 eDrive20, 65.2 kWh"
+   },
+   "preis": 49400,
+   "batterie": 65.2,
+   "reichweite": 516,
+   "quelle": "https://www.bmw.de/content/dam/bmw/marketDE/bmw_de/new-vehicles/pricelists/preisliste-bmwx1.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 2939,
+   "kba": [
+    961,
+    756,
+    1658,
+    2421,
+    1736,
+    2628,
+    2901,
+    2449,
+    1809
+   ],
+   "kba_summe": 17319
+  },
+  {
+   "id": "cupra-born",
+   "marke": "Cupra",
+   "name": "Born",
+   "antrieb": "bev",
+   "version": {
+    "de": "Born 140 kW, 58 kWh",
+    "en": "Born 140 kW, 58 kWh"
+   },
+   "preis": 39990,
+   "batterie": 58,
+   "reichweite": null,
+   "quelle": "https://www.cupra.com/de-de/fahrzeuge/born",
+   "gelesen": "2026-10-19",
+   "bafa": 2806,
+   "kba": [
+    1054,
+    1048,
+    1785,
+    1442,
+    1456,
+    1830,
+    1978,
+    1005,
+    1261
+   ],
+   "kba_summe": 12859
+  },
+  {
+   "id": "citroen-e-c3",
+   "marke": "Citroën",
+   "name": "ë-C3",
+   "antrieb": "bev",
+   "version": {
+    "de": "ë-C3 You, Urban Range 29,3 kWh",
+    "en": "ë-C3 You, Urban Range 29.3 kWh"
+   },
+   "preis": 20140,
+   "batterie": 29.3,
+   "reichweite": 215,
+   "quelle": "https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/09-26/Preisliste_C3_24-09-2026.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 2513,
+   "kba": [
+    811,
+    879,
+    1113,
+    949,
+    1038,
+    1457,
+    1625,
+    1722,
+    1073
+   ],
+   "kba_summe": 10667
+  },
+  {
+   "id": "dacia-spring",
+   "marke": "Dacia",
+   "name": "Spring",
+   "antrieb": "bev",
+   "version": {
+    "de": "Spring Expression",
+    "en": "Spring Expression"
+   },
+   "preis": 17900,
+   "batterie": null,
+   "reichweite": 246,
+   "quelle": "https://www.dacia.de/hybrid-und-elektromodelle/neuer-spring.html",
+   "gelesen": "2026-10-19",
+   "bafa": 2402,
+   "kba": [
+    133,
+    111,
+    398,
+    740,
+    311,
+    1701,
+    940,
+    1418,
+    1897
+   ],
+   "kba_summe": 7649
+  },
+  {
+   "id": "fiat-500e",
+   "marke": "Fiat",
+   "name": "500e",
+   "antrieb": "bev",
+   "version": {
+    "de": "500 Elektro Pop, 23,8 kWh",
+    "en": "500 Elektro Pop, 23.8 kWh"
+   },
+   "preis": 25990,
+   "batterie": 21,
+   "reichweite": 190,
+   "quelle": "https://www.fiat.de/content/dam/fiat2023/de/pdf/pricelist/Preisliste-Fiat-500.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 2137,
+   "kba": [
+    804,
+    667,
+    768,
+    849,
+    1041,
+    1027,
+    786,
+    752,
+    840
+   ],
+   "kba_summe": 7534
+  },
+  {
+   "id": "renault-5",
+   "marke": "Renault",
+   "name": "Renault 5",
+   "antrieb": "bev",
+   "version": {
+    "de": "Evolution 120 Urban Range, 40 kWh",
+    "en": "Evolution 120 Urban Range, 40 kWh"
+   },
+   "preis": 26290,
+   "batterie": 40,
+   "reichweite": null,
+   "quelle": "https://www.renault.de/elektromodelle/r5-e-tech-elektrisch-my26.html",
+   "gelesen": "2026-10-19",
+   "bafa": 1963,
+   "kba": [
+    434,
+    543,
+    840,
+    870,
+    818,
+    1066,
+    1066,
+    754,
+    722
+   ],
+   "kba_summe": 7113
+  },
+  {
+   "id": "kia-ev3",
+   "marke": "Kia",
+   "name": "EV3",
+   "antrieb": "bev",
+   "version": {
+    "de": "EV3 Air, 58,3 kWh",
+    "en": "EV3 Air, 58.3 kWh"
+   },
+   "preis": 36190,
+   "batterie": 58.3,
+   "reichweite": 436,
+   "quelle": "https://www.kia.com/content/dam/kwcms/kme/de/de/assets/contents/utility/Preisliste/Kia-Germany-EV3-Preisliste.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 1934,
+   "kba": [
+    575,
+    637,
+    716,
+    671,
+    509,
+    979,
+    951,
+    1170,
+    1146
+   ],
+   "kba_summe": 7354
+  },
+  {
+   "id": "cupra-tavascan",
+   "marke": "Cupra",
+   "name": "Tavascan",
+   "antrieb": "bev",
+   "version": {
+    "de": "Tavascan Endurance, 58 kWh",
+    "en": "Tavascan Endurance, 58 kWh"
+   },
+   "preis": 49900,
+   "batterie": 58,
+   "reichweite": 441,
+   "quelle": "https://www.cupraofficial.de/content/dam/countries/de/cupra-website/pdf/preisliste/cars-models-pricelist-KR1-NA-NA-NA.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 1687,
+   "kba": [
+    826,
+    462,
+    1936,
+    1415,
+    1370,
+    2159,
+    1059,
+    516,
+    687
+   ],
+   "kba_summe": 10430
+  },
+  {
+   "id": "ford-explorer",
+   "marke": "Ford",
+   "name": "Explorer",
+   "antrieb": "bev",
+   "version": {
+    "de": "Explorer Style, 58 kWh",
+    "en": "Explorer Style, 58 kWh"
+   },
+   "preis": 39900,
+   "batterie": 58,
+   "reichweite": 444,
+   "quelle": "https://www.ford.de/content/dam/guxeu/de/documents/price-list/cars/explorer/PL_Ford_Explorer_g%C3%BCltig_ab_01.04.2026_Bestellnummer_DE20260121_final_s.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 1543,
+   "kba": [
+    377,
+    603,
+    897,
+    877,
+    523,
+    1172,
+    1767,
+    1514,
+    1010
+   ],
+   "kba_summe": 8740
+  },
+  {
+   "id": "kia-ev2",
+   "marke": "Kia",
+   "name": "EV2",
+   "antrieb": "bev",
+   "version": {
+    "de": "EV2 Light, 42,2 kWh",
+    "en": "EV2 Light, 42.2 kWh"
+   },
+   "preis": 26600,
+   "batterie": 42.2,
+   "reichweite": 317,
+   "quelle": "https://www.kia.com/content/dam/kwcms/kme/de/de/assets/contents/utility/Preisliste/Kia-Germany-EV2-Preisliste.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 1443,
+   "kba": [
+    0,
+    0,
+    100,
+    572,
+    684,
+    747,
+    1119,
+    1371,
+    1192
+   ],
+   "kba_summe": 5785
+  },
+  {
+   "id": "byd-seal-u-dmi",
+   "marke": "BYD",
+   "name": "Seal U DM-i",
+   "antrieb": "phev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 1436,
+   "kba": [
+    458,
+    852,
+    959,
+    1042,
+    1230,
+    1782,
+    1821,
+    1280,
+    1867
+   ],
+   "kba_summe": 11291
+  },
+  {
+   "id": "byd-dolphin-surf",
+   "marke": "BYD",
+   "name": "Dolphin Surf",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 1388,
+   "kba": [
+    833,
+    1220,
+    409,
+    532,
+    504,
+    485,
+    360,
+    295,
+    383
+   ],
+   "kba_summe": 5021
+  },
+  {
+   "id": "ford-puma",
+   "marke": "Ford",
+   "name": "Puma Gen-E",
+   "antrieb": "bev",
+   "version": {
+    "de": "Puma Gen-E, 46,8 kWh",
+    "en": "Puma Gen-E, 46.8 kWh"
+   },
+   "preis": 36900,
+   "batterie": 46.8,
+   "reichweite": 419,
+   "quelle": "https://www.ford.de/content/dam/guxeu/de/documents/brochures/cars/puma-gen-e/PL_Ford_pumaGen-E-16.07.2026.pdf",
+   "gelesen": "2026-10-19",
+   "bafa": 1338,
+   "kba": [
+    113,
+    360,
+    512,
+    597,
+    297,
+    757,
+    954,
+    974,
+    705
+   ],
+   "kba_summe": 5269
+  },
+  {
+   "id": "fiat-grande-panda",
+   "marke": "Fiat",
+   "name": "Grande Panda Elektro",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 1325,
+   "kba": [
+    244,
+    250,
+    235,
+    324,
+    487,
+    555,
+    659,
+    620,
+    512
+   ],
+   "kba_summe": 3886
+  },
+  {
+   "id": "leapmotor-b10",
+   "marke": "Leapmotor",
+   "name": "B10",
+   "antrieb": "bev",
+   "version": {
+    "de": "B10, Einstiegsversion",
+    "en": "B10, entry version"
+   },
+   "preis": 32900,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": "https://www.leapmotor.net/de-de/modelle/b10",
+   "gelesen": "2026-10-19",
+   "bafa": 1268,
+   "kba": [
+    208,
+    297,
+    298,
+    424,
+    303,
+    358,
+    415,
+    714,
+    1054
+   ],
+   "kba_summe": 4071
+  },
+  {
+   "id": "renault-twingo",
+   "marke": "Renault",
+   "name": "Twingo",
+   "antrieb": "bev",
+   "version": {
+    "de": "Twingo Evolution 80 Urban Range, 27,5 kWh",
+    "en": "Twingo Evolution 80 Urban Range, 27.5 kWh"
+   },
+   "preis": 19990,
+   "batterie": 27.5,
+   "reichweite": 262,
+   "quelle": "https://www.renault.de/elektromodelle/twingo-e-tech-elektrisch.html",
+   "gelesen": "2026-10-19",
+   "bafa": 1257,
+   "kba": [
+    0,
+    25,
+    49,
+    360,
+    382,
+    759,
+    1295,
+    1363,
+    1425
+   ],
+   "kba_summe": 5658
+  },
+  {
+   "id": "renault-4",
+   "marke": "Renault",
+   "name": "Renault 4",
+   "antrieb": "bev",
+   "version": {
+    "de": "Renault 4, Einstiegspreis",
+    "en": "Renault 4, entry price"
+   },
+   "preis": 27690,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": "https://www.renault.de/elektromodelle/renault-4-oo.html",
+   "gelesen": "2026-10-19",
+   "bafa": 1241,
+   "kba": [
+    274,
+    255,
+    342,
+    490,
+    493,
+    527,
+    571,
+    552,
+    407
+   ],
+   "kba_summe": 3911
+  },
+  {
+   "id": "opel-corsa",
+   "marke": "Opel",
+   "name": "Corsa Electric",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 1228,
+   "kba": [
+    497,
+    545,
+    842,
+    678,
+    660,
+    797,
+    735,
+    718,
+    637
+   ],
+   "kba_summe": 6109
+  },
+  {
+   "id": "skoda-enyaq",
+   "marke": "Skoda",
+   "name": "Enyaq",
+   "antrieb": "bev",
+   "version": {
+    "de": "Enyaq 60 Essence",
+    "en": "Enyaq 60 Essence"
+   },
+   "preis": 43490,
+   "batterie": null,
+   "reichweite": 455,
+   "quelle": "https://www.skoda-auto.de/_doc/c1847f69-4c0d-45a2-a000-138dbf591d38",
+   "gelesen": "2026-10-19",
+   "bafa": 1188,
+   "kba": [
+    1841,
+    2308,
+    3392,
+    2790,
+    2770,
+    3383,
+    2868,
+    2140,
+    2852
+   ],
+   "kba_summe": 24344
+  },
+  {
+   "id": "hyundai-kona",
+   "marke": "Hyundai",
+   "name": "Kona Elektro",
+   "antrieb": "bev",
+   "version": {
+    "de": "Kona Elektro Select, 49 kWh",
+    "en": "Kona Elektro Select, 49 kWh"
+   },
+   "preis": 38340,
+   "batterie": 49,
+   "reichweite": 380,
+   "quelle": "https://www.hyundai.com/de/de/modelle/kona-elektro/varianten-und-preise.html",
+   "gelesen": "2026-10-19",
+   "bafa": 1084,
+   "kba": [
+    444,
+    431,
+    522,
+    657,
+    572,
+    733,
+    749,
+    725,
+    546
+   ],
+   "kba_summe": 5379
+  },
+  {
+   "id": "mg4-urban",
+   "marke": "MG",
+   "name": "MG4 Urban",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 932,
+   "kba": [
+    20,
+    20,
+    110,
+    284,
+    381,
+    728,
+    1212,
+    661,
+    1021
+   ],
+   "kba_summe": 4437
+  },
+  {
+   "id": "kia-ev4",
+   "marke": "Kia",
+   "name": "EV4",
+   "antrieb": "bev",
+   "version": {
+    "de": "EV4 Air, 58,3 kWh",
+    "en": "EV4 Air, 58.3 kWh"
+   },
+   "preis": 37590,
+   "batterie": 58.3,
+   "reichweite": null,
+   "quelle": "https://www.kia.com/de/modelle/ev4/entdecken/",
+   "gelesen": "2026-10-19",
+   "bafa": 883,
+   "kba": [
+    67,
+    225,
+    411,
+    628,
+    426,
+    480,
+    786,
+    640,
+    796
+   ],
+   "kba_summe": 4459
+  },
+  {
+   "id": "volvo-ex30",
+   "marke": "Volvo",
+   "name": "EX30",
+   "antrieb": "bev",
+   "version": null,
+   "preis": null,
+   "batterie": null,
+   "reichweite": null,
+   "quelle": null,
+   "gelesen": null,
+   "bafa": 777,
+   "kba": [
+    274,
+    341,
+    484,
+    448,
+    386,
+    708,
+    798,
+    562,
+    1058
+   ],
+   "kba_summe": 5059
+  }
+ ]
+}

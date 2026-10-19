@@ -1,0 +1,20 @@
+{
+ "accent": "#0B6B5A",
+ "symbol": "eclair",
+ "variants": [
+  {
+   "file": "og-de.png",
+   "title": "E-Auto-Förderung 2026\nZuschuss je Haushalt und Modell",
+   "subtitle": "Richtlinie vom 19.05.2026 · Einkommen × Kinder × Antrieb · Nettopreis",
+   "badge": "2026",
+   "brand": "Stromerprämie"
+  },
+  {
+   "file": "og-en.png",
+   "title": "Germany EV grant 2026\nper household and per model",
+   "subtitle": "Guideline of 19 May 2026 · income × children × drive · net price",
+   "badge": "2026",
+   "brand": "Stromerprämie"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { route, ROUTES } from '../i18n/routes';
+const r = (id: string, l: 'de' | 'en') => (ROUTES.some((x) => x.id === id) ? route(id, l) : route('home', l));
+---
+<BaseLayout title="Seite nicht gefunden · Page not found" description="Unter dieser Adresse gibt es keine Seite zur E-Auto-Förderung. There is no page about the German EV grant at this address." lang="de" noindex={true}>
+  <div class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold text-navy-900">Diese Adresse führt ins Leere</h1>
+    <p class="mt-4 text-navy-700">Vielleicht ist der Link beim Kopieren abgeschnitten worden. Die meisten kommen hierher, um ihre <a class="underline" href={route('home', 'de')}>E-Auto-Förderung</a> nach Einkommen und Kindern zu rechnen, den <a class="underline" href={r('foerderfaehige-modelle', 'de')}>Preis nach Förderung</a> eines Modells zu sehen oder die <a class="underline" href={r('thg-praemie', 'de')}>THG-Prämie</a> zu prüfen.</p>
+    <p class="mt-6 text-navy-700" lang="en">Nothing lives at this address. Most visitors want their <a class="underline" href={route('home', 'en')}>German EV grant</a> by income and children, the <a class="underline" href={r('foerderfaehige-modelle', 'en')}>price after the grant</a> of a model or the <a class="underline" href={r('thg-praemie', 'en')}>GHG quota payout</a>.</p>
+  </div>
+</BaseLayout>

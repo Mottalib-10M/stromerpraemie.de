@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy of ${SITE_NAMES[lang]}: sources and checks`} description="Where grant amounts, income limits, deadlines, list prices and registration figures come from, when they are checked, how announcements are handled and what happens on an error." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial policy and corrections</h1>
+    <p>Sign a purchase contract counting on a grant you then do not receive and you pay the difference yourself. So this page says where every figure comes from and what happens when one is wrong.</p>
+    <h2>Responsibility</h2><p>Content and calculators are the responsibility of {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Primary sources only</h2>
+    <ul>
+      <li><strong>The funding guideline of 19 May 2026</strong> (Federal Gazette) and the <strong>BAFA</strong> pages on eligibility, application, documents and statistics;</li>
+      <li><strong>gesetze-im-internet.de</strong>: the Income Tax Act, the Vehicle Tax Act and the 38th BImSchV as in force;</li>
+      <li><strong>Federal Environment Agency</strong>, <strong>Federal Motor Transport Authority</strong>, <strong>Federal Transport Ministry</strong> and <strong>Bundestag</strong>: GHG quota estimates, registrations, charging support, legislation;</li>
+      <li><strong>Manufacturer price lists</strong> for list prices, each with the date read. Market prices for the GHG quota come from named comparisons and carry their date.</li>
+    </ul>
+    <p>Other calculators, advice portals, dealers and press reports are not sources for legal values, however high they rank.</p>
+    <h2>Proposals and drafts</h2><p>Announced calls for funding, drafts and figures for 2027 onwards are labelled as announced, dated and never built into the calculators until they appear in the Federal Gazette or on the BAFA pages.</p>
+    <h2>Checks before each release</h2><p>Every cell of the grant table, the income limits at each band, the registration periods, the deadlines and the vehicle tax run as automated tests. A value that drifts stops the release.</p>
+    <h2>Review cycle</h2><p>Full review at least every {REVIEW_CYCLE_MONTHS} months, plus every new BAFA statistic, every monthly KBA release, every change to the guideline and every change in the law.</p>
+    <h2>Corrections</h2>
+    <ol><li>Check against the primary source.</li><li>Fix in the parameter file or calculator and add a test.</li><li>New date on every page; a substantive correction is noted on the page.</li></ol>
+    <h2>Independence</h2><p>No money from manufacturers, dealers, leasing companies or GHG quota providers. No recommendation to buy any model.</p>
+    <p>See also <a href={route('method', lang)}>how we calculate</a>. Version: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

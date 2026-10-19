@@ -1,0 +1,218 @@
+[
+ {
+  "id": "einkommensgrenze",
+  "dir": "guides",
+  "slug_de": "einkommensgrenze-e-auto-foerderung",
+  "slug_en": "income-limit",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "e auto förderung einkommensgrenze · zu versteuerndes einkommen e auto"
+ },
+ {
+  "id": "haushaltseinkommen",
+  "dir": "guides",
+  "slug_de": "haushaltseinkommen-berechnen",
+  "slug_en": "household-income",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "haushaltseinkommen e auto förderung · durchschnitt zwei steuerbescheide · paar unverheiratet"
+ },
+ {
+  "id": "kinder",
+  "dir": "guides",
+  "slug_de": "kinderbonus",
+  "slug_en": "children-bonus",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "e auto förderung kinder · kinderbonus · wechselmodell"
+ },
+ {
+  "id": "plug-in-hybrid",
+  "dir": "guides",
+  "slug_de": "plug-in-hybrid-foerderung",
+  "slug_en": "plug-in-hybrid-grant",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "plug in hybrid förderung 2026 · 60 g co2 · 80 km"
+ },
+ {
+  "id": "rentner",
+  "dir": "guides",
+  "slug_de": "rentner",
+  "slug_en": "pensioners",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "e auto förderung rentner · ohne steuerbescheid"
+ },
+ {
+  "id": "selbststaendige",
+  "dir": "guides",
+  "slug_de": "selbststaendige-firmenwagen",
+  "slug_en": "self-employed-company-cars",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "e auto förderung selbstständige · firmenwagen"
+ },
+ {
+  "id": "zuzug",
+  "dir": "guides",
+  "slug_de": "ohne-deutschen-steuerbescheid",
+  "slug_en": "new-to-germany",
+  "group": "foerderung",
+  "kind": "mini",
+  "kp": "expat ev grant germany · neu in deutschland"
+ },
+ {
+  "id": "antrag",
+  "dir": "guides",
+  "slug_de": "antrag-stellen",
+  "slug_en": "how-to-apply",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "e auto förderung antrag · bundid · unterlagen · auszahlung"
+ },
+ {
+  "id": "haltedauer",
+  "dir": "guides",
+  "slug_de": "haltedauer-verkauf",
+  "slug_en": "holding-period",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "e auto förderung haltedauer · verkauf · rückforderung"
+ },
+ {
+  "id": "leasing",
+  "dir": "guides",
+  "slug_de": "leasing",
+  "slug_en": "leasing",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "e auto förderung leasing"
+ },
+ {
+  "id": "neuwagen",
+  "dir": "guides",
+  "slug_de": "neuwagen-tageszulassung-ausland",
+  "slug_en": "new-cars-only",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "tageszulassung förderung · gebrauchtwagen · auslandskauf"
+ },
+ {
+  "id": "kumulierung",
+  "dir": "guides",
+  "slug_de": "kaufpraemie-kombinieren",
+  "slug_en": "combining-bonuses",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "e auto kaufprämie · herstellerprämie · länder"
+ },
+ {
+  "id": "laufzeit",
+  "dir": "guides",
+  "slug_de": "laufzeit-bis-2029",
+  "slug_en": "how-long-it-runs",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "e auto förderung 2027 · wie lange · förderstopp"
+ },
+ {
+  "id": "statistik",
+  "dir": "guides",
+  "slug_de": "bewilligungen-statistik",
+  "slug_en": "approval-statistics",
+  "group": "antrag",
+  "kind": "mini",
+  "kp": "e auto förderung statistik · bewilligungen"
+ },
+ {
+  "id": "thg-praemie",
+  "dir": "rechner",
+  "slug_de": "thg-praemie",
+  "slug_en": "ghg-quota-payout",
+  "group": "kosten",
+  "kind": "tool:thg",
+  "kp": "thg prämie · thg quote rechner"
+ },
+ {
+  "id": "thg-quote",
+  "dir": "guides",
+  "slug_de": "thg-quote",
+  "slug_en": "ghg-quota-rules",
+  "group": "kosten",
+  "kind": "mini",
+  "kp": "thg quote 2026 · umweltbundesamt · gesetz"
+ },
+ {
+  "id": "kfz-steuer",
+  "dir": "rechner",
+  "slug_de": "kfz-steuer-elektroauto",
+  "slug_en": "vehicle-tax",
+  "group": "kosten",
+  "kind": "tool:kfz",
+  "kp": "kfz steuer elektroauto · steuerbefreiung"
+ },
+ {
+  "id": "wallbox",
+  "dir": "guides",
+  "slug_de": "wallbox-foerderung",
+  "slug_en": "wallbox-grant",
+  "group": "kosten",
+  "kind": "mini",
+  "kp": "wallbox förderung 2026 · kfw · mehrfamilienhaus"
+ },
+ {
+  "id": "foerderfaehige-modelle",
+  "dir": "rechner",
+  "slug_de": "foerderfaehige-modelle",
+  "slug_en": "eligible-models",
+  "group": "modelle",
+  "kind": "tool:modelle",
+  "kp": "förderfähige e autos liste · e auto förderung modelle"
+ },
+ {
+  "id": "skoda-elroq",
+  "dir": "modelle",
+  "slug_de": "skoda-elroq-foerderung",
+  "slug_en": "skoda-elroq-grant",
+  "group": "modelle",
+  "kind": "tool:praemie",
+  "kp": "skoda elroq förderung"
+ },
+ {
+  "id": "leapmotor-t03",
+  "dir": "modelle",
+  "slug_de": "leapmotor-t03-foerderung",
+  "slug_en": "leapmotor-t03-grant",
+  "group": "modelle",
+  "kind": "tool:praemie",
+  "kp": "leapmotor t03 förderung"
+ },
+ {
+  "id": "hyundai-inster",
+  "dir": "modelle",
+  "slug_de": "hyundai-inster-foerderung",
+  "slug_en": "hyundai-inster-grant",
+  "group": "modelle",
+  "kind": "tool:praemie",
+  "kp": "hyundai inster förderung"
+ },
+ {
+  "id": "dacia-spring",
+  "dir": "modelle",
+  "slug_de": "dacia-spring-foerderung",
+  "slug_en": "dacia-spring-grant",
+  "group": "modelle",
+  "kind": "tool:praemie",
+  "kp": "dacia spring förderung"
+ },
+ {
+  "id": "vw-id3",
+  "dir": "modelle",
+  "slug_de": "vw-id3-foerderung",
+  "slug_en": "vw-id3-grant",
+  "group": "modelle",
+  "kind": "tool:praemie",
+  "kp": "vw id.3 förderung"
+ }
+]

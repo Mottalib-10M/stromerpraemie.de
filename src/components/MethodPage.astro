@@ -1,0 +1,99 @@
+---
+/** So rechnen wir (Vertrauensseite, RECETTE §8.2): Rechenregeln, Daten, Tests, Grenzen, alle Quellen. */
+import PageLayout from '../layouts/PageLayout.astro';
+import { route, type Locale } from '../i18n/routes';
+import { P } from '../lib/engine/params';
+import { formatMoney, formatNumber, displayDate } from '../lib/format';
+import { breadcrumbSchema, webPageSchema } from '../lib/seo';
+import { LAST_UPDATED, CONTACT_EMAIL, REVIEW_CYCLE_MONTHS, LANG_TAGS } from '../data/site-config';
+import { elektroSteuer } from '../lib/engine/kfz';
+import { datumText } from '../lib/engine/datum';
+import M from '../data/modelle.json';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const de = lang === 'de';
+const $ = (n: number, d = 0) => formatMoney(n, d, lang);
+const n = (x: number, d = 0) => formatNumber(x, d, lang);
+const dt = (iso: string) => displayDate(iso, LANG_TAGS[lang]);
+const dx = (iso: string) => datumText(iso, lang);
+const F = P.foerderung, K = P.kfz, T = P.thg;
+const title = de ? 'E-Auto-Förderung 2026 nachgerechnet: Methode und Quellen' : 'EV Grant Germany 2026 Worked Through: Method and Sources';
+const description = de ? 'E-Auto-Förderung 2026 offengelegt: Haushaltseinkommen aus zwei Steuerbescheiden, Stufen und Kinder, Fristen, Modelldaten von KBA und BAFA, Kfz-Steuer, THG-Quote, Tests.' : 'Germany EV grant 2026 in the open: household income from two tax assessments, bands and children, deadlines, KBA and BAFA model data, vehicle tax, GHG quota, tests.';
+const h1 = de ? 'So rechnen wir' : 'How we calculate';
+const path = route('method', lang);
+const sources = Object.values(P.sources);
+const mitPreis = M.modelle.filter((m) => m.preis).length;
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: h1, description, path, lang }), breadcrumbSchema([{ name: de ? 'Start' : 'Home', path: route('home', lang) }, { name: h1, path }])]} breadcrumbs={[{ label: h1 }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{h1}</h1></header>
+  {de ? (
+  <div class="prose prose-slate max-w-none">
+    <p>Jeder Rechtswert steht in einer einzigen Parameterdatei, gelesen am <time datetime={P.retrieved_at}>{dt(P.retrieved_at)}</time>: die Richtlinie zur Förderung des Erwerbs neuer Elektrofahrzeuge vom {dx(F.richtlinie_datum)}, die Seiten des BAFA zu Voraussetzungen, Antrag und Nachweisen, das Einkommensteuergesetz und das Kraftfahrzeugsteuergesetz auf gesetze-im-internet.de, die 38. BImSchV und die Bekanntmachungen des Umweltbundesamts. Rechner und Texte lesen nur aus dieser Datei. Wir sind nicht das BAFA; verbindlich ist allein dessen Zuwendungsbescheid.</p>
+    <h2>Haushaltseinkommen</h2>
+    <p>Für jede erwachsene Person des Haushalts, also die antragstellende Person und, falls vorhanden, Ehe- oder eingetragene Lebenspartner oder die Person in eheähnlicher Gemeinschaft, nimmt der Rechner das zu versteuernde Einkommen nach § 2 Abs. 5 EStG aus den zwei letzten Steuerbescheiden, bildet den Durchschnitt und addiert die Durchschnitte. Beispiel: Person 1 mit {$(42000)} und {$(46000)}, Person 2 mit {$(18000)} und {$(22000)} ergibt {$(44000)} + {$(20000)} = {$(64000)}. Bei Zusammenveranlagung steht ein gemeinsamer Wert im Bescheid; der Rechner teilt ihn auf zwei Personen, die Summe bleibt gleich. Einkommen von Kindern zählt nicht. Ein Bescheid über 0 € ist gültig. Ein Durchschnitt mit 50 Cent über der Grenze fällt in die nächste Stufe; der Rechner rundet nicht.</p>
+    <h2>Stufen und Kinder</h2>
+    <p>Stufen bis {$(F.grenzen[0])}, bis {$(F.grenzen[1])} und bis {$(F.grenzen[2])}, die Grenzen jeweils eingeschlossen. Die Einkommensgrenze liegt bei {$(F.obergrenze_basis)} und steigt um {$(F.obergrenze_je_kind)} je förderrelevantem Kind bis höchstens {$(F.obergrenze_max)}; mehr als {F.max_kinder} Kinder zählen nicht. Über {$(F.grenzen[2])} gilt der Betrag der dritten Stufe, solange die Grenze für die Kinderzahl eingehalten ist. Förderrelevant ist ein Kind unter {F.kind_alter_unter} Jahren am Tag der Erstzulassung, das im Haushalt lebt und für das Kindergeld bezogen wird. Elektroautos: {$(F.bev[0][0])} bis {$(F.bev[0][2])}; Plug-in-Hybride und Range Extender mit höchstens {F.phev_co2_max_g_km} g CO2/km oder mindestens {F.phev_reichweite_min_km} km elektrischer Reichweite: {$(F.phev[0][0])} bis {$(F.phev[0][2])}.</p>
+    <h2>Zeiträume und Fristen</h2>
+    <p>Gefördert wird die Erstzulassung ab dem {dx(F.erstzulassung_ab)}, bei Elektroautos bis {dx(F.bev_erstzulassung_bis)}, bei Plug-in-Hybriden bis {dx(F.phev_erstzulassung_bis)}. Der Antrag ist nach der Zulassung zu stellen, spätestens {F.antragsfrist_monate} Monate danach; der Rechner zeigt den Monat. Die Haltedauer beträgt {F.haltedauer_monate} Monate ab Zulassung. Weil der Rechner nur Monat und Jahr abfragt, rechnet er vom Ersten des Monats; rechnen Sie mit Ihrem genauen Zulassungstag nach.</p>
+    <h2>Preis nach Förderung und Modelldaten</h2>
+    <p>Preis nach Förderung = Listenpreis des Herstellers inklusive 19 % Mehrwertsteuer minus Förderbetrag. Händlerrabatte, Herstellerprämien, Überführung und Zulassung sind nicht eingerechnet. {mitPreis} Listenpreise stammen aus Preislisten und Modellseiten der Hersteller, jeweils mit Adresse, Lesedatum ({dx(M.preise_gelesen)}) und wörtlichem Zitat im Quellordner der Seite; wo keine Herstellerquelle lesbar war, steht kein Preis. Die Bewilligungen je Modell stammen aus der Statistik des BAFA mit Stand {dx(M.bafa_stand)}, die Varianten eines Modells sind addiert. Die Neuzulassungen stammen aus der Tabelle FZ10 des Kraftfahrt-Bundesamts, Januar bis {M.kba_bis_text.de}, Spalte Elektro (BEV) oder Plug-in-Hybrid, unter der Datenlizenz Deutschland, Namensnennung 2.0. Das KBA zählt Modellreihen, nicht Versionen; Cupra steht dort unter Seat, der iX1 unter der Reihe X1. Ein Skript baut die Datei aus diesen drei Quellen neu.</p>
+    <h2>Kfz-Steuer</h2>
+    <p>Elektroautos mit Erstzulassung vom {dx(K.befreiung_zulassung_von)} bis {dx(K.befreiung_zulassung_bis)} sind zehn Jahre befreit, längstens bis {dx(K.befreiung_ende_spaetestens)} (§ 3d KraftStG). Danach je angefangene {K.je_kg} kg zulässiges Gesamtgewicht {$(K.stufen[0].eur, 2)} bis 2.000 kg, {$(K.stufen[1].eur, 2)} bis 3.000 kg und {$(K.stufen[2].eur, 2)} bis 3.500 kg, gestaffelt, davon die Hälfte (§ 9 Abs. 1 Nr. 3 und Abs. 2). Beispiel 2.200 kg: {$(elektroSteuer(2200), 2)} im Jahr. Plug-in-Hybride: {$(K.hubraum_otto_eur, 2)} je angefangene 100 cm³ (Diesel {$(K.hubraum_diesel_eur, 2)}) und gestaffelte Beträge je Gramm CO2 über {K.co2_frei_g_km} g/km.</p>
+    <h2>THG-Quote</h2>
+    <p>Für ein reines Elektroauto ohne Nachweis des Verbrauchs setzt das Umweltbundesamt einen Schätzwert von {n(T.schaetzwert_m1_kwh)} kWh im Jahr an ({n(T.schaetzwert_n1_kwh)} kWh für leichte Nutzfahrzeuge), der auf die Quote dreifach zählt. Was ein Anbieter dafür zahlt, ist ein Marktpreis; der Rechner nimmt den Betrag, den Sie eingeben, und nennt als Orientierung den Marktstand vom {dx(T.markt_stand)}. Eine Umrechnung in Tonnen CO2 zeigen wir nicht.</p>
+    <h2>Tests vor jeder Veröffentlichung</h2>
+    <ul>
+      <li>Alle 30 Felder der Fördertabelle (Elektroauto und Plug-in-Hybrid, fünf Stufen, null bis zwei Kinder).</li>
+      <li>Jede Grenze links und rechts: {n(F.grenzen[0])} und {n(F.grenzen[0] + 1)}, {n(F.grenzen[1])} und {n(F.grenzen[1] + 1)}, {n(F.grenzen[2])} und {n(F.grenzen[2] + 1)}, {n(F.obergrenze_basis + F.obergrenze_je_kind)} und {n(F.obergrenze_basis + F.obergrenze_je_kind + 1)}, {n(F.obergrenze_max)} und {n(F.obergrenze_max + 1)}, drei und mehr Kinder.</li>
+      <li>Erster und letzter Tag jedes Zulassungszeitraums, Fristen über Monatsenden.</li>
+      <li>Kfz-Steuer an jeder 200-kg-Stufe, Ende der Befreiung vor und nach 2035, Plug-in-Hybrid mit und ohne CO2-Aufschlag.</li>
+    </ul>
+    <h2>Was die Rechner nicht können</h2>
+    <ul>
+      <li>Prüfen, ob Ihr Fahrzeug die Voraussetzungen erfüllt; eine Liste förderfähiger Modelle veröffentlicht das BAFA nicht.</li>
+      <li>Ihre Steuerbescheide lesen oder entscheiden, wer zu Ihrem Haushalt gehört; im Zweifel entscheidet das BAFA nach Ihren Nachweisen.</li>
+      <li>Zusagen: Die Förderung steht unter dem Vorbehalt der verfügbaren Mittel, und es gibt keinen Rechtsanspruch.</li>
+      <li>Persönliche Beratung zu Steuer, Leasing oder Finanzierung.</li>
+    </ul>
+    <h2>Aktualisierung</h2>
+    <p>Volle Durchsicht spätestens alle {REVIEW_CYCLE_MONTHS} Monate, dazu bei jeder neuen Statistik des BAFA, jeder Monatsstatistik des KBA und jeder Änderung der Richtlinie. Fehler bitte an <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Siehe auch die <a href={route('editorial', lang)}>Redaktionsgrundsätze</a>.</p>
+    <h2>Alle Quellen</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.label.de}</a></li>)}</ul>
+  </div>
+  ) : (
+  <div class="prose prose-slate max-w-none">
+    <p>Every legal value sits in one parameter file, read on <time datetime={P.retrieved_at}>{dt(P.retrieved_at)}</time>: the guideline on funding the purchase of new electric vehicles of {dx(F.richtlinie_datum)}, the BAFA pages on eligibility, applying and documents, the Income Tax Act and the Vehicle Tax Act on gesetze-im-internet.de, the 38th BImSchV and the Federal Environment Agency's notices. Calculators and pages read only from that file. We are not BAFA; only its grant decision is binding.</p>
+    <h2>Household income</h2>
+    <p>For each adult in the household, meaning the applicant and, where there is one, a spouse, registered partner or partner in a marriage-like relationship, the calculator takes the taxable income under section 2(5) of the Income Tax Act from the last two tax assessments, averages them and adds up the averages. Example: person 1 with {$(42000)} and {$(46000)}, person 2 with {$(18000)} and {$(22000)} gives {$(44000)} + {$(20000)} = {$(64000)}. A joint assessment shows one figure; the calculator splits it across two people, and the total stays the same. Children's income does not count. An assessment of €0 is valid. An average 50 cents over a limit falls into the next band; the calculator does not round.</p>
+    <h2>Bands and children</h2>
+    <p>Bands up to {$(F.grenzen[0])}, up to {$(F.grenzen[1])} and up to {$(F.grenzen[2])}, each limit inclusive. The income limit is {$(F.obergrenze_basis)} and rises by {$(F.obergrenze_je_kind)} per eligible child up to {$(F.obergrenze_max)}; more than {F.max_kinder} children do not count. Above {$(F.grenzen[2])} the third band's amount applies as long as the limit for the number of children is met. A child counts if under {F.kind_alter_unter} on the day of first registration, living in the household and with child benefit (Kindergeld) paid for them. Battery electric cars: {$(F.bev[0][0])} to {$(F.bev[0][2])}; plug-in hybrids and range extenders with at most {F.phev_co2_max_g_km} g CO2/km or at least {F.phev_reichweite_min_km} km electric range: {$(F.phev[0][0])} to {$(F.phev[0][2])}.</p>
+    <h2>Periods and deadlines</h2>
+    <p>First registrations from {dx(F.erstzulassung_ab)} are covered, battery electric cars until {dx(F.bev_erstzulassung_bis)}, plug-in hybrids until {dx(F.phev_erstzulassung_bis)}. You apply after registration and at the latest {F.antragsfrist_monate} months afterwards; the calculator shows the month. The holding period is {F.haltedauer_monate} months from registration. Because the calculator only asks for the month and year, it counts from the 1st; check against your exact registration day.</p>
+    <h2>Price after the grant and model data</h2>
+    <p>Price after the grant = manufacturer list price including 19% VAT minus the grant. Dealer discounts, manufacturer bonuses, delivery and registration are not included. {mitPreis} list prices come from manufacturer price lists and model pages, each with its address, date read ({dx(M.preise_gelesen)}) and a verbatim quote in the site's source folder; where no manufacturer source could be read, no price is shown. Approvals per model come from BAFA's statistics as of {dx(M.bafa_stand)}, with a model's variants added up. Registrations come from the Federal Motor Transport Authority's FZ10 table, January to {M.kba_bis_text.en}, battery electric or plug-in hybrid column, under the Data licence Germany, attribution 2.0. The KBA counts model ranges, not versions; Cupra appears under Seat, the iX1 under the X1 range. A script rebuilds the file from these three sources.</p>
+    <h2>Vehicle tax</h2>
+    <p>Battery electric cars first registered from {dx(K.befreiung_zulassung_von)} to {dx(K.befreiung_zulassung_bis)} are exempt for ten years, at the latest until {dx(K.befreiung_ende_spaetestens)} (section 3d KraftStG). After that, per started {K.je_kg} kg of permitted total weight, {$(K.stufen[0].eur, 2)} up to 2,000 kg, {$(K.stufen[1].eur, 2)} up to 3,000 kg and {$(K.stufen[2].eur, 2)} up to 3,500 kg, tiered, and half of that (section 9(1) no. 3 and (2)). Example 2,200 kg: {$(elektroSteuer(2200), 2)} a year. Plug-in hybrids: {$(K.hubraum_otto_eur, 2)} per started 100 cc (diesel {$(K.hubraum_diesel_eur, 2)}) plus tiered amounts per gram of CO2 above {K.co2_frei_g_km} g/km.</p>
+    <h2>GHG quota</h2>
+    <p>For a battery electric car without metered consumption, the Federal Environment Agency sets an estimate of {n(T.schaetzwert_m1_kwh)} kWh a year ({n(T.schaetzwert_n1_kwh)} kWh for light commercial vehicles), which counts three times towards the quota. What a provider pays for it is a market price; the calculator uses the amount you enter and gives the market level of {dx(T.markt_stand)} as a guide. We do not convert it into tonnes of CO2.</p>
+    <h2>Tests before every release</h2>
+    <ul>
+      <li>All 30 cells of the grant table (battery electric and plug-in hybrid, five bands, zero to two children).</li>
+      <li>Every limit on both sides: {n(F.grenzen[0])} and {n(F.grenzen[0] + 1)}, {n(F.grenzen[1])} and {n(F.grenzen[1] + 1)}, {n(F.grenzen[2])} and {n(F.grenzen[2] + 1)}, {n(F.obergrenze_basis + F.obergrenze_je_kind)} and {n(F.obergrenze_basis + F.obergrenze_je_kind + 1)}, {n(F.obergrenze_max)} and {n(F.obergrenze_max + 1)}, three or more children.</li>
+      <li>First and last day of each registration period, deadlines across month ends.</li>
+      <li>Vehicle tax at every 200 kg step, the end of the exemption before and after 2035, plug-in hybrids with and without a CO2 charge.</li>
+    </ul>
+    <h2>What the calculators cannot do</h2>
+    <ul>
+      <li>Check that your vehicle qualifies; BAFA publishes no list of eligible models.</li>
+      <li>Read your tax assessments or decide who belongs to your household; in case of doubt BAFA decides on your documents.</li>
+      <li>Promise anything: the grant depends on available funds and there is no legal entitlement.</li>
+      <li>Personal advice on tax, leasing or finance.</li>
+    </ul>
+    <h2>Updates</h2>
+    <p>Full review at least every {REVIEW_CYCLE_MONTHS} months, plus every new BAFA statistic, every monthly KBA release and every change to the guideline. Report errors to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. See the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+    <h2>All sources</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.label.en}</a></li>)}</ul>
+  </div>
+  )}
+  <p class="mt-6 text-sm text-navy-600">{de ? 'Zuletzt geprüft' : 'Last checked'}: <time datetime={LAST_UPDATED}>{dt(LAST_UPDATED)}</time>.</p>
+</PageLayout>
