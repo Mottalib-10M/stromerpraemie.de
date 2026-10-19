@@ -45,9 +45,9 @@ export default function ThgRechner({ lang = 'de', methodHref }: Props) {
             <NumberField id="thg-pr" label={tx(lang, 'Prämie des Anbieters je Jahr', 'Provider payout a year')} value={pr} onChange={setPr} unit="€" max={2000} lang={lang} />
             <NumberField id="thg-g" label={tx(lang, 'Gebühr je Antrag', 'Fee per claim')} value={geb} onChange={setGeb} unit="€" max={500} lang={lang} />
           </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
             <Toggle id="thg-an" label={tx(lang, 'Antrieb', 'Drive')} value={an} onChange={setAn} options={[{ value: 'bev', label: tx(lang, 'Elektro', 'Electric') }, { value: 'phev', label: 'Plug-in' }]} />
-            <Toggle id="thg-kl" label={tx(lang, 'Fahrzeugklasse', 'Vehicle class')} value={kl} onChange={setKl} options={[{ value: 'm1', label: 'Pkw (M1)' }, { value: 'n1', label: tx(lang, 'Transporter (N1)', 'Van (N1)') }]} />
+            <Toggle id="thg-kl" label={tx(lang, 'Fahrzeugklasse', 'Vehicle class')} value={kl} onChange={setKl} options={[{ value: 'm1', label: tx(lang, 'Pkw', 'Car') }, { value: 'n1', label: tx(lang, 'Transporter', 'Van') }]} />
           </div>
           <div className="grid grid-cols-2 gap-x-4 gap-y-4">
             <SelectField id="thg-j" label={tx(lang, 'Jahre', 'Years')} value={j} onChange={setJ} options={[1, 2, 3, 4, 5].map((x) => ({ value: String(x), label: String(x) }))} />

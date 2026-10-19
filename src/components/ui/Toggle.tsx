@@ -6,7 +6,7 @@ export default function Toggle({ id, label, options, value, onChange, className 
       <div className="grid h-12 w-fit min-w-[9rem] grid-flow-col auto-cols-fr gap-1 self-start rounded-lg border border-navy-300 bg-white p-1">
         {options.map((o) => (
           <button key={o.value} type="button" onClick={() => onChange(o.value)} aria-pressed={value === o.value}
-            className={`h-full whitespace-nowrap rounded-md px-4 text-sm font-medium transition-colors ${value === o.value ? 'bg-accent-600 text-white' : 'text-navy-600 hover:bg-navy-50'}`}>{o.label}</button>
+            className={`h-full whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors ${value === o.value ? 'bg-accent-600 text-white' : 'text-navy-600 hover:bg-navy-50'}`}>{o.label}</button>
         ))}
       </div>
     </div>

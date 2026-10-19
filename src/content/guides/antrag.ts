@@ -58,7 +58,7 @@ ${h.table(['Unterlage', 'Wann', 'Was lesbar sein muss'], [
   ['Zulassungsbescheinigung Teil I', 'immer', 'vollständig, Vorder- und Rückseite'],
   ['Kauf- oder Leasingvertrag', 'immer', 'vollständig'],
   ['Kindergeldnachweis', 'bei Kindern unter 18', 'Empfänger, Name und Geburtsdatum des Kindes, Kindergeldnummer, Datum, Anschrift'],
-  ['CoC des Fahrzeugs', `bei Plug-in-Hybrid über ${h.P.foerderung.phev_co2_max_g_km} g CO2/km`, 'elektrische Reichweite unter 49.5'],
+  ['CoC des Fahrzeugs', `bei Plug-in-Hybrid über ${h.P.foerderung.phev_co2_max_g_km} g CO2/km`, 'elektrische Reichweite unter 49.⁠5'],
   ['Vollmacht', 'wenn eine andere Person beantragt', 'vom Halter unterschrieben'],
 ], 'Was das BAFA für den Antrag braucht', ['l', 'l', 'l'])}
 <p>Bei gemeinsam veranlagten Ehepaaren genügt je Jahr der gemeinsame Bescheid für beide. Dokumente müssen auf Deutsch sein oder als beglaubigte Übersetzung vorliegen. Wer keinen Scanner hat, kann mit dem Smartphone scannen; das BAFA hat dafür Anleitungen veröffentlicht. Achten Sie darauf, dass keine Seite abgeschnitten wird und Schwärzungen nur auf der Kopie stehen.</p>
@@ -92,7 +92,7 @@ ${h.table(['Unterlage', 'Wann', 'Was lesbar sein muss'], [
     slug: 'how-to-apply',
     nav: 'How to apply',
     card: 'The application step by step: BundID, documents, deadlines, power of attorney and payment.',
-    title: 'How to apply for the EV grant 2026: BundID, documents',
+    title: 'EV grant application 2026: BundID, documents and deadlines',
     description: `How to apply for the German EV grant 2026: only after registration, within ${F.antragsfrist_monate} months, online with BundID; the PDFs you need and when the money arrives.`,
     h1: 'Applying for the 2026 EV grant',
     intro: 'From setting up BundID to the payment: which steps come in which order, which documents BAFA wants to see, and where applications most often get stuck.',
@@ -128,7 +128,7 @@ ${h.table(['Document', 'When', 'What must be legible'], [
   ['Registration certificate part I', 'always', 'complete, front and back'],
   ['Purchase or lease contract', 'always', 'complete'],
   ['Kindergeld proof', 'with children under 18', 'recipient, child’s name and date of birth, Kindergeld number, date, address'],
-  ['Vehicle CoC', `plug-in hybrid above ${h.P.foerderung.phev_co2_max_g_km} g CO2/km`, 'electric range under item 49.5'],
+  ['Vehicle CoC', `plug-in hybrid above ${h.P.foerderung.phev_co2_max_g_km} g CO2/km`, 'electric range under item 49.⁠5'],
   ['Power of attorney', 'if someone else applies', 'signed by the keeper'],
 ], 'What BAFA needs for the application', ['l', 'l', 'l'])}
 <p>For married couples assessed jointly, one joint assessment per year covers both. Documents must be in German or come with a certified translation. Without a scanner you can scan with a smartphone; BAFA has published instructions for this. Make sure no page is cut off and that black-outs are only on the copy.</p>

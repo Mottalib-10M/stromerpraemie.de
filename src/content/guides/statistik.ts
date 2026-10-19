@@ -26,7 +26,7 @@ export default defineGuide({
   order: 70,
   mini: 'aStat',
   related: ['laufzeit', 'foerderfaehige-modelle', 'leasing', 'einkommensgrenze', 'kinder'],
-  sources: ['bafaStatistik', 'kba', 'bafaFaq'],
+  sources: ['bafaStatistik', 'kba', 'bafaFaq', 'bmuknHunderttausend'],
   de: {
     slug: 'bewilligungen-statistik',
     nav: 'Statistik',
@@ -53,7 +53,7 @@ ${h.table(['Kennzahl', 'Wert', 'Anteil'], [
   ['Kauf', h.num(S.erwerb.kauf), h.pct(anteil(S.erwerb.kauf))],
   ['Leasing', h.num(S.erwerb.leasing), h.pct(anteil(S.erwerb.leasing))],
 ], `Bewilligungen der E-Auto-Förderung, Stand ${h.date(S.stand)}`, ['l', 'r', 'r'])}
-<p>Rechnerisch sind das gut ${h.num(Math.round(n / tage))} Bewilligungen je Tag seit dem Start. Die ausgezahlte Summe je Bewilligung liegt bei ${h.eur((S.ausgezahlt_mio * 1e6) / n)}; da zwischen Bewilligung und Auszahlung einige Wochen liegen, ist das eher eine Untergrenze.</p>
+<p>Wenige Tage nach diesem Stichtag meldete das ${h.src('bmuknHunderttausend', 'Bundesumweltministerium')} am ${h.date('2026-10-05')}, dass Anfang Oktober die Marke von ${h.num(100000)} Bewilligungen erreicht wurde; eine neue Aufschlüsselung dazu hat das BAFA noch nicht veröffentlicht. Die Bewilligungen bis zum Stichtag entsprechen rechnerisch gut ${h.num(Math.round(n / tage))} Bewilligungen je Tag seit dem Start. Die ausgezahlte Summe je Bewilligung liegt bei ${h.eur((S.ausgezahlt_mio * 1e6) / n)}; da zwischen Bewilligung und Auszahlung einige Wochen liegen, ist das eher eine Untergrenze.</p>
 <h2>Nach Einkommen und Kindern</h2>
 ${h.table(['Haushaltseinkommen', 'Bewilligungen', 'Anteil'], S.einkommen.map((e) => [`${h.eur(e.von)} bis ${h.eur(e.bis)}`, h.num(e.anzahl), h.pct(anteil(e.anzahl))]), 'Bewilligungen nach zu versteuerndem Haushaltseinkommen', ['l', 'r', 'r'])}
 <p>Über die Hälfte der Förderungen ging in die erste Stufe. Die beiden Gruppen über ${h.eur(F.obergrenze_basis)} sind klein, weil dort nur Haushalte mit förderrelevanten Kindern zum Zug kommen: zwischen ${h.eur(S.einkommen[3].von)} und ${h.eur(S.einkommen[3].bis)} mit mindestens einem Kind, darüber mit mindestens zwei. Wie die Grenzen genau wirken, steht unter ${h.a('einkommensgrenze', 'Einkommensgrenze')}.</p>
@@ -113,7 +113,7 @@ ${h.table(['Figure', 'Value', 'Share'], [
   ['Purchase', h.num(S.erwerb.kauf), h.pct(anteil(S.erwerb.kauf))],
   ['Lease', h.num(S.erwerb.leasing), h.pct(anteil(S.erwerb.leasing))],
 ], `EV grant approvals as of ${h.date(S.stand)}`, ['l', 'r', 'r'])}
-<p>On paper that is just over ${h.num(Math.round(n / tage))} approvals a day since the start. The amount paid per approval is ${h.eur((S.ausgezahlt_mio * 1e6) / n)}; since payment follows approval by a few weeks, that is more of a lower bound.</p>
+<p>A few days after this cut-off, the ${h.src('bmuknHunderttausend', 'Federal Environment Ministry')} announced on ${h.date('2026-10-05')} that the mark of ${h.num(100000)} approvals had been reached in early October; BAFA has not yet published a new breakdown. Approvals up to the cut-off amount on paper to just over ${h.num(Math.round(n / tage))} approvals a day since the start. The amount paid per approval is ${h.eur((S.ausgezahlt_mio * 1e6) / n)}; since payment follows approval by a few weeks, that is more of a lower bound.</p>
 <h2>By income and children</h2>
 ${h.table(['Household income', 'Approvals', 'Share'], S.einkommen.map((e) => [`${h.eur(e.von)} to ${h.eur(e.bis)}`, h.num(e.anzahl), h.pct(anteil(e.anzahl))]), 'Approvals by household taxable income', ['l', 'r', 'r'])}
 <p>More than half of grants went to the first band. The two groups above ${h.eur(F.obergrenze_basis)} are small because only households with qualifying children are eligible there: between ${h.eur(S.einkommen[3].von)} and ${h.eur(S.einkommen[3].bis)} with at least one child, above that with at least two. How the limits work exactly is under ${h.a('einkommensgrenze', 'income limit')}.</p>

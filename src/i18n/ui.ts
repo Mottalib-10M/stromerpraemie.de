@@ -12,7 +12,7 @@ const en: typeof de = {
   skipToContent: 'Skip to content', mainNav: 'Main navigation', breadcrumbLabel: 'Path', breadcrumbHome: 'Home', menuOpen: 'Open menu',
   faqTitle: 'What buyers in Germany ask', relatedCalculators: 'Related', sourcesTitle: 'Guideline, laws and sources', writtenBy: 'Published by',
   asOf: 'As of', lastUpdated: 'read on', footerValidated: 'All 30 cells of the grant table, the income limits and the vehicle tax run as tests', footerBrowser: 'Calculated in your browser · no sign-up · nothing sent to us',
-  footerDisclaimer: 'Stromerprämie is an independent service by Radif Partners. We are not BAFA, a ministry or any other authority, not a car dealer and not a GHG quota provider, and we sell nothing. Results are estimates under the funding guideline of 19 May 2026 and not personal advice; only the grant decision (Zuwendungsbescheid) is binding. There is no legal entitlement to the grant.', footerPopular: '', notFound: 'There is no page at this address.',
+  footerDisclaimer: 'Stromerprämie is an independent service by Radif Partners. We are not BAFA, a ministry or any other authority, not a car dealer and not a GHG quota provider, and we sell nothing. Results are indicative estimates under the funding guideline of 19 May 2026 and not personal advice; only the grant decision (Zuwendungsbescheid) is binding. There is no legal entitlement to the grant.', footerPopular: '', notFound: 'There is no page at this address.',
   readMore: 'Read the whole paragraph',
 };
 export function t(lang: Locale) { return lang === 'en' ? en : de; }

@@ -61,7 +61,7 @@ export default function ModellListe({ lang = 'de', methodHref, preset = {} }: Pr
                 </tr>))}</tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs text-navy-600">{tx(lang, 'Listenpreise der Hersteller inkl. 19 % MwSt., ohne Überführung, gelesen am 19. Oktober 2026; Bewilligungen: BAFA, Stand 1. Oktober 2026; Neuzulassungen: Kraftfahrt-Bundesamt, FZ10 (Datenlizenz Deutschland, Namensnennung 2.0). Händlerrabatte und Herstellerprämien sind nicht abgezogen.', 'Manufacturer list prices incl. 19% VAT, before delivery, read on 19 October 2026; approvals: BAFA as of 1 October 2026; registrations: Federal Motor Transport Authority, FZ10 (Data licence Germany, attribution 2.0). Dealer discounts and manufacturer bonuses are not deducted.')}</p>
+          <p className="mt-3 text-xs text-navy-600">{tx(lang, 'Listenpreise der Hersteller inkl. 19 % MwSt., ohne Überführung, gelesen am 19. Oktober 2026; Bewilligungen: BAFA, Stand 1. Oktober 2026; Neuzulassungen: Kraftfahrt-Bundesamt, FZ10 (Datenlizenz Deutschland, Namensnennung, dl-de/by-2-0). Händlerrabatte und Herstellerprämien sind nicht abgezogen.', 'Manufacturer list prices incl. 19% VAT, before delivery, read on 19 October 2026; approvals: BAFA as of 1 October 2026; registrations: Federal Motor Transport Authority, FZ10 (Data licence Germany, attribution 2.0). Dealer discounts and manufacturer bonuses are not deducted.')}</p>
           <Hinweis lang={lang} methodHref={methodHref} />
         </div>
       </div>
