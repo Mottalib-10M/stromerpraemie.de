@@ -1,0 +1,23 @@
+{
+  "_quelle": "BAFA, Zwischenbericht zur E-Auto-Förderung, Stand 1. Oktober 2026, 00:00 Uhr (research/bafa/10_Oktober_Statistik_E-Auto-Foerderung.pdf). Quelle in params: sources.bafaStatistik.",
+  "stand": "2026-10-01",
+  "antrag_ab": "2026-05-19",
+  "bewilligungen": 97790,
+  "ausgezahlt_mio": 432,
+  "antrieb": { "bev": 89594, "phev": 8196 },
+  "erwerb": { "kauf": 49328, "leasing": 48462 },
+  "einkommen": [
+    { "von": 0, "bis": 45000, "anzahl": 51209 },
+    { "von": 45001, "bis": 60000, "anzahl": 21337 },
+    { "von": 60001, "bis": 80000, "anzahl": 22560 },
+    { "von": 80001, "bis": 85000, "anzahl": 2045 },
+    { "von": 85001, "bis": 90000, "anzahl": 639 }
+  ],
+  "kinder": { "null": 64976, "eins": 11424, "zwei_plus": 21390 },
+  "marken": [
+    ["Tesla", 12155], ["Skoda", 7224], ["Cupra", 6229], ["Leapmotor", 5816], ["BYD", 5814], ["Renault", 5721],
+    ["Volkswagen", 5464], ["Kia", 5424], ["Hyundai", 4988], ["BMW", 4679], ["Ford", 4340], ["Citroën", 3797],
+    ["Fiat", 3535], ["Opel", 3250], ["Peugeot", 2649], ["Dacia", 2403], ["MG", 2132], ["Toyota", 1622],
+    ["Audi", 1574], ["Mini", 1406], ["Nissan", 1088], ["Volvo", 1065], ["Mercedes-Benz", 1029], ["Mazda", 1002], ["Xpeng", 741]
+  ]
+}
