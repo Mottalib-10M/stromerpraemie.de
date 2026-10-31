@@ -25,7 +25,7 @@ export default (l: L): MiniSpec => ({
       head: [T(l, 'Fehlende Monate', 'Months missing'), num(fehlt, l)],
       rows: [
         [T(l, 'Gehalten', 'Kept'), `${num(Math.min(gehalten, F.haltedauer_monate), l)} ${T(l, 'Monate', 'months')}`],
-        [T(l, 'Haltedauer endet', 'Holding period ends'), (() => { const [j, m] = fristen(z).haltenBis.split('-').map(Number); return `${monatsName(m, l)} ${j}`; })()],
+        [T(l, 'Haltedauer endet (Vortag des Zulassungstags) im', 'Holding period ends (day before the registration day) in'), (() => { const [j, m] = fristen(z).haltenMonat.split('-').map(Number); return `${monatsName(m, l)} ${j}`; })()],
         [T(l, 'Rein zeitanteilig gerechnet', 'Purely pro rata'), eur(Math.round(v.b * fehlt / F.haltedauer_monate), l)],
       ],
       note: T(l, 'Das BAFA entscheidet im Einzelfall über eine anteilige oder vollständige Rückforderung; die zeitanteilige Zahl ist nur eine Größenordnung, kein Bescheid.', 'BAFA decides case by case on a partial or full claw-back; the pro rata figure is only an order of magnitude, not a decision.'),

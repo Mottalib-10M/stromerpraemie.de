@@ -114,11 +114,11 @@ export default function PraemienRechner({ lang = 'de', methodHref, preset = {} }
           <Zeilen rows={[
             { label: tx(lang, 'Haushaltseinkommen (zvE)', 'Household taxable income'), value: f.eur(zve) },
             { label: tx(lang, 'Grenze für Ihre Kinderzahl', 'Limit for your number of children'), value: f.eur(e.grenze) },
-            ...(e.spielraum !== null && e.betrag > 0 ? [{ label: tx(lang, `Spielraum bis ${e.naechsterBetrag ? f.eur(e.naechsterBetrag) : 'keine Förderung'}`, `Headroom before ${e.naechsterBetrag ? f.eur(e.naechsterBetrag) : 'no grant'}`), value: f.eur(e.spielraum), muted: true }] : []),
+            ...(e.spielraum !== null && e.betrag > 0 ? [{ label: e.naechsterBetrag ? tx(lang, `Einkommen-Spielraum, bevor die Förderung auf ${f.eur(e.naechsterBetrag)} sinkt`, `Income headroom before the grant drops to ${f.eur(e.naechsterBetrag)}`) : tx(lang, 'Einkommen-Spielraum, bevor die Förderung entfällt', 'Income headroom before the grant ends'), value: f.eur(e.spielraum), muted: true }] : []),
             { label: modell && mod !== 'frei' ? `${modell.marke} ${modell.name}` : tx(lang, 'Kaufpreis', 'Purchase price'), value: f.eur(preis), sep: true },
             { label: tx(lang, 'Preis nach Förderung', 'Price after the grant'), value: f.eur(netto), strong: true },
-            { label: tx(lang, 'Antrag spätestens', 'Apply by'), value: tx(lang, `12 Monate nach Zulassung (${monatText(fr.antragBis)})`, `12 months after registration (${monatText(fr.antragBis)})`), sep: true },
-            { label: tx(lang, 'Halten mindestens bis', 'Keep the car until at least'), value: monatText(fr.haltenBis) },
+            { label: tx(lang, `Antrag spätestens (${F.antragsfrist_monate} Monate nach Zulassung)`, `Apply by (${F.antragsfrist_monate} months after registration)`), value: monatText(fr.antragBis), sep: true },
+            { label: tx(lang, 'Halten bis zum Vortag des Zulassungstags im', 'Keep the car until the day before the registration day in'), value: monatText(fr.haltenMonat) },
           ]} />
           {e.plusKind > 0 && <p className="mt-2 text-sm text-navy-700">{tx(lang, `Mit einem weiteren Kind unter 18: ${f.eur(e.plusKind)} mehr.`, `With one more child under 18: ${f.eur(e.plusKind)} more.`)}</p>}
           {antrieb === 'phev' && <p className="mt-2 text-sm text-navy-700">{tx(lang, `Plug-in-Hybride nur mit höchstens ${F.phev_co2_max_g_km} g CO2/km oder mindestens ${F.phev_reichweite_min_km} km elektrischer Reichweite (Übereinstimmungsbescheinigung).`, `Plug-in hybrids only with at most ${F.phev_co2_max_g_km} g CO2/km or at least ${F.phev_reichweite_min_km} km electric range (certificate of conformity).`)}</p>}

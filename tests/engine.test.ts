@@ -74,7 +74,9 @@ describe('Haushaltseinkommen', () => {
 
 describe('Fristen', () => {
   it('Antrag 12 Monate, Haltedauer 36 Monate', () => {
-    expect(fristen('2026-03-15')).toEqual({ antragBis: '2027-03-15', haltenBis: '2029-03-14' });
+    expect(fristen('2026-03-15')).toEqual({ antragBis: '2027-03-15', haltenBis: '2029-03-14', haltenMonat: '2029-03-15' });
+    // Seite Haltedauer: Zulassung im November 2026 → halten bis in den November 2029 (Vortag des Zulassungstags)
+    expect(fristen('2026-11-01').haltenMonat.slice(0, 7)).toBe('2029-11');
     expect(plusMonate('2026-01-31', 1)).toBe('2026-02-28');
     expect(minusTag('2029-01-01')).toBe('2028-12-31');
   });

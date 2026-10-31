@@ -18,11 +18,11 @@ export default (l: L): MiniSpec => ({
     return {
       head: [T(l, 'Antrag spätestens im', 'Apply at the latest in'), mon(f.antragBis, l)],
       rows: [
-        [T(l, 'Halten mindestens bis', 'Keep the car at least until'), mon(f.haltenBis, l)],
+        [T(l, 'Halten bis zum Vortag des Zulassungstags im', 'Keep the car until the day before the registration day in'), mon(f.haltenMonat, l)],
         [T(l, 'Elektroauto im Förderzeitraum', 'Battery electric inside the period'), zeitraumOk('bev', z) ? T(l, 'ja', 'yes') : T(l, 'nein', 'no')],
         [T(l, 'Plug-in-Hybrid im Förderzeitraum', 'Plug-in hybrid inside the period'), zeitraumOk('phev', z) ? T(l, 'ja', 'yes') : T(l, 'nein', 'no')],
       ],
-      note: T(l, `Gerechnet vom Ersten des Monats; maßgeblich ist der Tag der Erstzulassung. Antrag erst nach der Zulassung, höchstens ${P.foerderung.antragsfrist_monate} Monate danach.`, `Counted from the 1st of the month; what counts is the day of first registration. Apply only after registration, at most ${P.foerderung.antragsfrist_monate} months later.`),
+      note: T(l, `Maßgeblich ist der Tag der Erstzulassung (bei Zulassung am Ersten endet die Haltedauer schon am letzten Tag des Vormonats). Antrag erst nach der Zulassung, höchstens ${P.foerderung.antragsfrist_monate} Monate danach.`, `What counts is the day of first registration (registered on the 1st, the holding period ends on the last day of the month before). Apply only after registration, at most ${P.foerderung.antragsfrist_monate} months later.`),
     };
   },
 });

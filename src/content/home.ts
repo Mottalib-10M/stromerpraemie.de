@@ -64,7 +64,7 @@ ${h.table(['Haushalt', 'Haushaltseinkommen', 'Elektroauto', 'Plug-in-Hybrid'], [
 <h2>Der Ablauf in vier Schritten</h2>
 <ol>
 <li><strong>Kaufen oder leasen</strong>: ein neues Fahrzeug, keine Tageszulassung und kein Vorführwagen. Wo Sie kaufen, ist gleich, auch im Ausland; zugelassen wird in Deutschland.</li>
-<li><strong>Zulassen</strong>: auf Ihren Namen. Ab diesem Tag laufen beide Fristen. Bei einer Zulassung im ${mon(Z, 'de')} endet die Antragsfrist im ${mon(fr.antragBis, 'de')} und die Haltedauer im ${mon(fr.haltenBis, 'de')}.</li>
+<li><strong>Zulassen</strong>: auf Ihren Namen. Ab diesem Tag laufen beide Fristen. Bei einer Zulassung im ${mon(Z, 'de')} endet die Antragsfrist im ${mon(fr.antragBis, 'de')} und die Haltedauer am Vortag des Zulassungstags im ${mon(fr.haltenMonat, 'de')}.</li>
 <li><strong>Beantragen</strong>: im Portal der ${h.src('foerderzentrale', 'Förderzentrale des Bundes')}, angemeldet mit der BundID über den Online-Ausweis oder ein ELSTER-Zertifikat. Ein BundID-Konto nur mit Benutzername und Passwort reicht nicht.</li>
 <li><strong>Bescheid und Geld</strong>: Das BAFA prüft vollständige Anträge in der Reihenfolge des Eingangs; einige Wochen nach dem Zuwendungsbescheid kommt das Geld.</li>
 </ol>
@@ -124,7 +124,7 @@ ${h.table(['Household', 'Household income', 'Battery electric', 'Plug-in hybrid'
 <h2>Four steps from contract to payment</h2>
 <ol>
 <li><strong>Buy or lease</strong> a new car: not a pre-registered car or a demonstrator. Where you buy does not matter, even abroad; it is registered in Germany.</li>
-<li><strong>Register it</strong> in your name. Both deadlines start that day. Registered in ${mon(Z, 'en')}, you must apply by ${mon(fr.antragBis, 'en')} and keep the car until ${mon(fr.haltenBis, 'en')}.</li>
+<li><strong>Register it</strong> in your name. Both deadlines start that day. Registered in ${mon(Z, 'en')}, you must apply by ${mon(fr.antragBis, 'en')} and keep the car until the day before the registration day in ${mon(fr.haltenMonat, 'en')}.</li>
 <li><strong>Apply</strong> on the portal of the ${h.src('foerderzentrale', 'federal funding centre')}, signed in with BundID using the online ID function (Online-Ausweis) or an ELSTER certificate. A BundID account with just a user name and password is not enough.</li>
 <li><strong>Decision and payment</strong>: BAFA checks complete applications in the order they arrive; the money follows a few weeks after the grant decision.</li>
 </ol>

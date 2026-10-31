@@ -68,6 +68,9 @@ export function fristen(zulassung: string) {
   return {
     antragBis: plusMonate(zulassung, F.antragsfrist_monate),
     haltenBis: minusTag(plusMonate(zulassung, F.haltedauer_monate)),
+    /** Monat, in dem die Haltedauer endet, wenn nur der Zulassungsmonat bekannt ist: Vortag des Zulassungstags
+     *  36 Monate später, also in diesem Monat (bei Zulassung am Ersten schon am letzten Tag des Vormonats). */
+    haltenMonat: plusMonate(zulassung, F.haltedauer_monate),
   };
 }
 export const nettopreis = (preis: number, betrag: number) => Math.max(0, preis - betrag);
