@@ -81,7 +81,7 @@ ${h.table(['Zulassung', 'Alter des Kindes', 'Gezählte Kinder', 'Förderung bei 
 </ul>
 <h2>Rechenbeispiel: eine Familie, zwei Autos</h2>
 <p>Ein Ehepaar mit zwei Kindern von 9 und 13 Jahren hat ein Haushaltseinkommen von ${h.eur(87000)}. Ohne Kinder läge es über jeder Grenze. Mit zwei förderrelevanten Kindern liegt die Obergrenze bei ${h.eur(obergrenze(2))}, und für ein Elektroauto gibt es ${h.eur(b(87000, 2))}. Kauft der Haushalt ein zweites Elektroauto, das auf den anderen Partner zugelassen wird, kann auch dieser einen Antrag stellen: Es gelten dasselbe Einkommen und dieselben Kinder, zusammen also ${h.eur(2 * b(87000, 2))}. Für einen Plug-in-Hybrid wären es je ${h.eur(b(87000, 2, 'phev'))}. Ändert sich das Einkommen später, bleibt es bei den bewilligten Beträgen. Wichtig ist nur, dass beide Autos jeweils vor dem ${h.P.foerderung.kind_alter_unter}. Geburtstag des älteren Kindes zugelassen werden, wenn es auf beide Kinder ankommt; hier ist das ältere Kind erst 13, die Frage stellt sich also noch lange nicht. Bei Teenagern kurz vor der Volljährigkeit lohnt dagegen ein Blick in den Kalender.</p>
-<h2>Kinder und die übrigen Regeln</h2>
+<h2>Der Kinderbonus und die übrigen Regeln der Förderung</h2>
 <p>Am übrigen Verfahren ändern Kinder nichts. Die Haltedauer bleibt bei ${h.P.foerderung.haltedauer_monate} Monaten, die Fristen bleiben gleich, und ein Kind, das während der Haltedauer volljährig wird oder auszieht, ändert an der bewilligten Förderung nichts. Wie das Haushaltseinkommen zustande kommt, steht unter ${h.a('haushaltseinkommen', 'Haushaltseinkommen berechnen')}; die vollständige Tabelle mit allen Stufen unter ${h.a('einkommensgrenze', 'Einkommensgrenze')}. Für eine Rechnung mit Ihrem Wunschauto und dessen Nettopreis nutzen Sie den ${h.a('home', 'Prämienrechner')}.</p>`,
   },
   en: {
@@ -141,7 +141,7 @@ ${h.table(['Registration', 'Child’s age', 'Children counted', 'Grant at ' + h.
 </ul>
 <h2>Worked example: one family, two cars</h2>
 <p>A married couple with two children aged 9 and 13 has household income of ${h.eur(87000)}. Without children they would be over every limit. With two qualifying children the ceiling is ${h.eur(obergrenze(2))}, and a battery electric car brings ${h.eur(b(87000, 2))}. If they buy a second electric car registered to the other partner, that partner can also apply: same income, same children, so ${h.eur(2 * b(87000, 2))} together. For a plug-in hybrid it would be ${h.eur(b(87000, 2, 'phev'))} each. If income changes later, the approved amounts stand. Where both children matter, each car simply has to be registered before the older child turns ${h.P.foerderung.kind_alter_unter}.</p>
-<h2>Children and the other rules</h2>
+<h2>The children bonus and the other grant rules</h2>
 <p>Children change nothing else in the procedure. The holding period stays at ${h.P.foerderung.haltedauer_monate} months, deadlines stay the same, and a child who comes of age or moves out during the holding period does not affect the approved grant. How household income is built is under ${h.a('haushaltseinkommen', 'household income')}; the full table with every band under ${h.a('einkommensgrenze', 'income limit')}. For a calculation with the car you want and its net price, use the ${h.a('home', 'grant calculator')}.</p>`,
   },
 });

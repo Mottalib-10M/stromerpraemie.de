@@ -41,7 +41,7 @@ export default defineGuide({
       { q: 'Welche Bescheide zählen, wenn mein Steuerberater spät abgibt?', a: `Immer die zwei aktuellsten Einkommensteuerbescheide, die zum Zeitpunkt des Antrags vorliegen. Wer mit Steuerberatung längere Abgabefristen hat, legt oft Bescheide vor, die zwei oder drei Jahre zurückliegen. Das ist zulässig, solange das Steuerjahr höchstens ${F.bescheid_max_alter_jahre} Jahre zurückliegt. Ein Bescheid über Vorauszahlungen enthält kein festgestelltes zvE und ersetzt keinen Einkommensteuerbescheid.` },
     ],
     body: (h) => `
-<h2>Privatperson ja, Unternehmen nein</h2>
+<h2>Förderung für Selbstständige: als Privatperson ja, als Unternehmen nein</h2>
 <p>Die ${h.src('richtlinie', 'Förderrichtlinie')} richtet sich an natürliche Personen. Das ${h.src('bafaFaq', 'BAFA')} beantwortet die Frage nach Selbstständigen deshalb mit einem klaren Ja und einer Bedingung: Der geförderte Pkw muss privat gehalten werden und darf nicht Teil des Betriebsvermögens sein. Für alles andere gelten dieselben Anforderungen wie für Angestellte oder Rentner. Ausgeschlossen sind dagegen Antragsteller, die keine natürlichen Personen sind: Unternehmen jeder Rechtsform, Vereine und Kommunen.</p>
 ${h.table(['Fall', 'Förderfähig', 'Warum'], [
   ['Freiberuflerin, Auto privat zugelassen und im Privatvermögen', 'ja', 'natürliche Person, Privatvermögen'],

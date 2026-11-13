@@ -41,7 +41,7 @@ export default defineGuide({
       { q: 'Was passiert mit der Förderung, wenn der Halter während der Haltedauer stirbt?', a: `Die Ummeldung auf die Erbin oder den Erben ist nicht förderschädlich. Die restliche Haltedauer von insgesamt ${F.haltedauer_monate} Monaten muss dann die erbende Person einhalten. Gegenüber dem BAFA wird die Erbschaft mit einem Erbschein belegt. Eine Rückforderung droht in diesem Fall nicht, solange das Auto weiter in Deutschland zugelassen bleibt.` },
     ],
     body: (h) => `
-<h2>Rentner sind ausdrücklich antragsberechtigt</h2>
+<h2>Rentner sind für die Förderung ausdrücklich antragsberechtigt</h2>
 <p>Die ${h.src('richtlinie', 'Förderrichtlinie')} schließt niemanden wegen des Alters aus. Es gelten dieselben Bedingungen wie für Berufstätige: Hauptwohnsitz in Deutschland, ein neues Auto, das auf Sie erstmals zugelassen wird, ein Haushaltseinkommen unter der Grenze und eine Haltedauer von ${h.P.foerderung.haltedauer_monate} Monaten. Das ${h.src('bafaFaq', 'BAFA')} hat dazu eine eigene Frage in seinen FAQ und nennt dort den Punkt, an dem es für viele Rentner hakt: den Steuerbescheid.</p>
 <h2>Kein Bescheid? Eine Erklärung genügt</h2>
 <p>Viele Rentnerinnen und Rentner sind nicht verpflichtet, eine Steuererklärung abzugeben, weil ihr steuerpflichtiger Rententeil unter dem Grundfreibetrag liegt. Sie haben deshalb oft seit Jahren keinen Bescheid. Für die Förderung braucht es aber für jede erwachsene Person des Haushalts zwei Bescheide. Der Weg ist einfach:</p>

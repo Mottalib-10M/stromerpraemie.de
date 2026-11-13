@@ -33,7 +33,7 @@ export default defineGuide({
     title: 'E-Auto Kaufprämie kombinieren 2026: Hersteller, Land, Quote',
     description: 'E-Auto Kaufprämie kombinieren 2026: Herstellerrabatt, THG-Prämie und Steuerbefreiung gehen zusammen, eine zweite öffentliche Förderung meist nicht mehr.',
     h1: 'Kaufprämie kombinieren: was zusammen geht und was nicht',
-    intro: 'Neben der staatlichen Förderung werben Hersteller mit eigenen Prämien, Länder und Städte mit Programmen, Anbieter mit der THG-Quote. Welche Beträge sich addieren lassen und wo die Grenze liegt.',
+    intro: 'Neben der staatlichen E-Auto-Förderung werben Hersteller mit eigenen Kaufprämien, Länder und Städte mit Programmen, Anbieter mit der THG-Quote. Welche Beträge sich addieren lassen und wo die Grenze liegt.',
     resume: `Die staatliche E-Auto-Förderung 2026 lässt sich mit mehreren anderen Vorteilen verbinden, aber nicht mit allen. Ein Rabatt des Herstellers oder Händlers ist ein Preisnachlass und keine öffentliche Förderung; er schließt die Förderung nicht aus. Volkswagen wirbt zum Beispiel mit einer eigenen „ID. Kaufprämie“ von bis zu ${DE.eur(HERST)}, die mit der Förderung des Bundes nichts zu tun hat. Die THG-Prämie ist ein Erlös am Markt und kommt jedes Jahr dazu; im Oktober 2026 lagen die Angebote über ${DE.eur(P.thg.markt_ohne_bonus_ab_eur)}. Die Befreiung von der Kfz-Steuer gilt kraft Gesetzes für jedes Elektroauto. Ausgeschlossen ist dagegen eine zweite öffentliche Förderung für dasselbe Fahrzeug, etwa aus einem Landes- oder Kommunalprogramm, es sei denn, eine Verwaltungsvereinbarung mit dem Bundesumweltministerium sieht die Kombination ausdrücklich vor. Auch eine vergleichbare Förderung eines anderen EU-Staates schließt die deutsche aus. Für einen VW ID.3 mit ${DE.eur(LP)} Listenpreis ergibt sich bei ${DE.eur(55000)} Haushaltseinkommen und einem Kind eine Förderung von ${DE.eur(b(55000, 1))}; mit einem Rabatt von ${DE.eur(HERST)} sinkt der Preis auf ${DE.eur(nettopreis(LP - HERST, b(55000, 1)))}.`,
     faqs: [
       { q: 'Darf ich die Herstellerprämie und die E-Auto-Förderung zusammen nutzen?', a: 'Ja. Eine Prämie des Herstellers oder ein Nachlass des Händlers ist ein kaufmännischer Rabatt und keine öffentliche Förderung. Er senkt den Preis, berührt aber die Förderung nicht. Die Förderung des Bundes wird auch nicht gekürzt, wenn der Rabatt hoch ist; es gibt keine Preisobergrenze, und der Betrag hängt nur von Einkommen, Kindern und Antrieb ab.' },
@@ -80,7 +80,7 @@ ${h.table(['Haushalt', 'Förderung', 'Preis nach Rabatt', 'Nach Förderung', 'Da
 <li>Bund und Land für dasselbe Auto ohne Verwaltungsvereinbarung.</li>
 <li>Eine Förderung für ein Auto, das später ins Betriebsvermögen wechselt und dort noch einmal als Firmenwagen gefördert werden soll; während der Haltedauer ist der Wechsel ohnehin ausgeschlossen.</li>
 </ul>
-<h2>Was ohne Weiteres zusammen geht</h2>
+<h2>Welche Kaufprämien sich ohne Weiteres kombinieren lassen</h2>
 <ul>
 <li>Förderung und Herstellerrabatt, auch wenn beide hoch sind.</li>
 <li>Förderung und jährliche ${h.a('thg-praemie', 'THG-Prämie')}.</li>
@@ -98,7 +98,7 @@ ${h.table(['Haushalt', 'Förderung', 'Preis nach Rabatt', 'Nach Förderung', 'Da
     title: 'Combining EV bonuses in Germany 2026: maker, state, quota',
     description: 'Combining EV bonuses in Germany 2026: maker discounts, the GHG quota payout and the tax exemption add up, a second public grant for one car usually does not.',
     h1: 'Combining bonuses: what adds up and what does not',
-    intro: 'Besides the federal grant, makers advertise their own bonuses, states and cities their own schemes, providers the GHG quota. Which amounts add up and where the line is.',
+    intro: 'Besides the federal grant in Germany, makers advertise their own bonuses, states and cities their own schemes, providers the GHG quota. Which amounts add up and where the line is.',
     resume: `Germany’s 2026 federal EV grant can be combined with several other benefits, but not all of them. A manufacturer or dealer discount is a price reduction, not public funding, and does not rule out the grant. Volkswagen, for example, advertises its own “ID. Kaufprämie” of up to ${EN.eur(HERST)}, which has nothing to do with the federal grant. The GHG quota payout (THG-Prämie) is a market income that comes on top every year; in October 2026 offers were above ${EN.eur(P.thg.markt_ohne_bonus_ab_eur)}. The vehicle tax exemption applies by law to every electric car. What is excluded is a second public grant for the same vehicle, for instance from a state or municipal scheme, unless an administrative agreement (Verwaltungsvereinbarung) with the Federal Environment Ministry expressly allows the combination. Comparable funding from another EU state also rules out the German grant. For a VW ID.3 with a list price of ${EN.eur(LP)}, a household on ${EN.eur(55000)} with one child gets ${EN.eur(b(55000, 1))}; with a ${EN.eur(HERST)} discount the price falls to ${EN.eur(nettopreis(LP - HERST, b(55000, 1)))}.`,
     faqs: [
       { q: 'Can I use a maker’s bonus and the EV grant together?', a: 'Yes. A manufacturer’s bonus or dealer’s discount is a commercial reduction, not public funding. It lowers the price but does not touch the grant. The federal grant is not cut if the discount is large either; there is no price cap, and the amount depends only on income, children and drive type.' },
@@ -143,7 +143,7 @@ ${h.table(['Household', 'Grant', 'Price after discount', 'After the grant', 'Plu
 <li>A grant for a car already funded in another country.</li>
 <li>Federal and state funding for the same car without an administrative agreement.</li>
 </ul>
-<h2>What simply adds up</h2>
+<h2>Bonuses you can simply combine</h2>
 <ul>
 <li>The grant and a maker’s discount, even if both are large.</li>
 <li>The grant and the yearly ${h.a('thg-praemie', 'GHG quota payout')}.</li>

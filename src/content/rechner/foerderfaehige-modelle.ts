@@ -79,8 +79,8 @@ ${h.table(['Modell', 'Listenpreis', `netto bis ${h.eur(s1)}`, `netto bis ${h.eur
     card: 'The common electric cars with list price, price after the grant for your income, approvals and registrations.',
     title: 'Eligible EVs Germany 2026: list with price after the grant',
     description: `Eligible EVs in Germany 2026: ${liste.length} models with list price and price after the grant for your income, plus the BAFA approvals and the KBA new registration figures.`,
-    h1: 'Eligible electric cars 2026: price after the grant by model',
-    intro: 'Enter household income and children: the list works out each model’s price after the EV grant and sorts by what you actually pay.',
+    h1: 'Eligible electric cars in Germany 2026: price after the grant by model',
+    intro: 'Enter household income and children: the list works out each eligible model’s price after the EV grant and sorts by what you actually pay.',
     resume: `There is no official list of eligible electric cars: BAFA funds any new M1 vehicle that meets the guideline’s conditions, with no price cap and no rule on where it was built. Battery electric and fuel cell cars qualify if first registered in Germany between ${datumText(F.erstzulassung_ab, 'en')} and ${datumText(F.bev_erstzulassung_bis, 'en')}; plug-in hybrids and range extenders until ${datumText(F.phev_erstzulassung_bis, 'en')}, and only with at most ${F.phev_co2_max_g_km} g CO2 per km or at least ${F.phev_reichweite_min_km} km of electric range. This page lists ${liste.length} models with the manufacturer’s list price, read on ${datumText(gelesen, 'en')}. The cheapest after the grant is the ${billig.marke} ${billig.name}: ${EN.eur(preis(billig))} list price, ${EN.eur(netto(billig, s1, 0))} in the first income band with no child. With two children and income of at most ${EN.eur(s1)} the grant is ${EN.eur(max)}, in the third band with no child ${EN.eur(min)}. ${unter20.length} models cost less than ${EN.eur(20000)} in the first band without children.`,
     faqs: [
       { q: 'Is there an official list of eligible electric cars in Germany?', a: 'No. BAFA does not publish a model list like the one that existed for the earlier environmental bonus. Any new M1 vehicle that meets the conditions qualifies: drive type, the period of first registration in Germany and, for hybrids, the CO2 or electric range values. Lists online are compilations, not official registers.' },
@@ -89,7 +89,7 @@ ${h.table(['Modell', 'Listenpreis', `netto bis ${h.eur(s1)}`, `netto bis ${h.eur
       { q: 'Why do some models have no price?', a: `For ${ohnePreis.length} models in the statistics, including Tesla, no list price could be read reliably from the manufacturer’s site. Rather than estimate one, this page shows only approvals and registrations for them. Work out the price after the grant in the grant calculator with your dealer’s quote; that is more precise than any list price.` },
     ],
     body: (h) => `
-<h2>What makes a model eligible</h2>
+<h2>What makes an EV eligible in Germany</h2>
 <p>The ${h.src('richtlinie', 'funding guideline')} names no models, only conditions. If a vehicle meets them it qualifies, whatever the brand and whatever the price. ${h.src('bafaVoraussetzungen', 'BAFA summarises them')}:</p>
 <ul>
 <li>A new M1 vehicle, that is a passenger car, bought or leased privately.</li>

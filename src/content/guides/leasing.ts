@@ -41,7 +41,7 @@ export default defineGuide({
       { q: 'Was passiert, wenn ich das Leasingauto ein paar Tage zu früh zurückgebe?', a: `Dann endet die Zulassung vor Ablauf der Haltedauer, und das ist dem BAFA zu melden. Es lohnt deshalb, das Rückgabedatum im Vertrag mit dem Tag der Zulassung zu vergleichen. Wurde das Auto einige Tage nach Vertragsbeginn zugelassen, kann ein Vertrag über genau ${F.haltedauer_monate} Monate wenige Tage zu früh enden.` },
     ],
     body: (h) => `
-<h2>Leasing ist gleichgestellt</h2>
+<h2>Leasing ist bei der Förderung gleichgestellt</h2>
 <p>Die ${h.src('richtlinie', 'Förderrichtlinie')} fördert Neuwagen, die gekauft oder geleast werden. Das ${h.src('bafaFaq', 'BAFA')} sagt dazu nur, dass das Fahrzeug über Kauf oder Leasing erworben werden muss; Kreditkonditionen und andere Erwerbsbedingungen spielen keine Rolle. Die ${h.src('bafaStatistik', 'Statistik vom Oktober 2026')} zeigt, wie verbreitet Leasing ist:</p>
 ${h.table(['Erwerbsart', 'Bewilligungen', 'Anteil'], [
   ['Kauf', h.num(KAUF), h.pct(KAUF / h.P.foerderung.bewilligungen)],

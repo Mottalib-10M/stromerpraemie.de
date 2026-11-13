@@ -93,7 +93,7 @@ ${h.table(['Fuhrpark', 'Schätzwert', 'Angerechnet'], [
     title: 'GHG quota rules 2026: THG-Quote law and the UBA estimate',
     description: `GHG quota rules 2026 explained: EV electricity counts ${T.multiplikator_strom} times, ${EN.num(schaetzwert('m1'))} kWh per car, a new law passed by the Bundestag, the quota rising to ${EN.pct(T.quote_2040, 0)} in 2040.`,
     h1: 'The GHG quota in 2026: what sits behind the payout',
-    intro: 'To make sense of the payout you need the quota itself: who has to meet it, how electricity from your car counts and what changed in 2026.',
+    intro: 'To make sense of the payout you need the GHG quota itself: who has to meet it, how electricity from your car counts and what changed in 2026.',
     resume: `Germany’s greenhouse gas reduction quota (Treibhausgasminderungsquote, or THG-Quote) obliges companies that sell petrol and diesel to cut the emissions of their fuels by a set share each year. One way to do that is electricity used by electric vehicles. The 38th Federal Immission Control Ordinance (38. BImSchV) lets that electricity count ${T.multiplikator_strom} times. Because private keepers do not meter their charging, the Federal Environment Agency (Umweltbundesamt, UBA) assumes a flat ${EN.num(schaetzwert('m1'))} kWh a year for every battery electric car and ${EN.num(schaetzwert('n1'))} kWh for a light van, so ${EN.num(angerechnet('m1'))} and ${EN.num(angerechnet('n1'))} kWh are credited. For 2026 the greenhouse gas value of electricity is ${EN.num(T.thg_wert_strom_2026_kg_gj)} kg of CO2 equivalent per gigajoule. On ${beschluss('en')} the Bundestag passed a law raising the quota step by step to ${EN.pct(T.quote_2040, 0)} by 2040. Keepers sell their share through a provider, and the proceeds are the payout.`,
     faqs: [
       { q: 'Who must meet the GHG quota and who benefits from it?', a: 'The obligation lies with companies that put fossil fuels on the market, mainly oil companies. Anyone who supplies a creditable reduction can benefit, including operators of charging points. A private keeper of an electric car counts as the operator of their own charging point, which is why they can sell their electricity through a provider.' },
@@ -133,7 +133,7 @@ ${h.table(['Fleet', 'Estimate', 'Credited'], [
   ['2 cars', `${h.num(2 * schaetzwert('m1'))} kWh`, `${h.num(zweiPkw)} kWh`],
   ['2 cars and 3 vans', `${h.num(betriebRoh)} kWh`, `${h.num(betrieb)} kWh`],
 ], 'Credited electricity per year', ['l', 'r', 'r'])}
-<h2>What does not count</h2>
+<h2>What does not count towards the GHG quota</h2>
 <ul>
 <li>Plug-in hybrids: the estimate only covers battery electric vehicles, however much a hybrid drives on electricity.</li>
 <li>Electric motorbikes and light vehicles: they are registered in their own classes, and whether a provider accepts them is in its terms.</li>

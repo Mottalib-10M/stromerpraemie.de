@@ -50,7 +50,7 @@ export default defineGuide({
 <li><strong>Partner einer eheähnlichen Gemeinschaft</strong>: vermutet bei zwei unverheirateten Erwachsenen mit gemeinsamem Hauptwohnsitz.</li>
 </ul>
 <p>Nicht mitgezählt werden Kinder, auch erwachsene mit eigenem Einkommen, Eltern oder Großeltern, die im Haus leben, und Mitbewohner einer WG, die getrennt wirtschaften. Kinder unter 18 wirken nur über die Kinderzahl, nicht über ihr Einkommen; wie, steht unter ${h.a('kinder', 'Kinderbonus')}.</p>
-<h2>Die Rechnung in drei Schritten</h2>
+<h2>Das Haushaltseinkommen für die Förderung in drei Schritten</h2>
 <ol>
 <li>Für jede Person des Haushalts die ${h.P.foerderung.bescheide_je_person} aktuellsten Einkommensteuerbescheide heraussuchen und jeweils die Zeile „zu versteuerndes Einkommen“ ablesen.</li>
 <li>Je Person den Durchschnitt bilden: beide Werte addieren und halbieren.</li>
@@ -115,7 +115,7 @@ ${h.table(['Mitbewohner', 'Eigenes Einkommen', 'Förderung Elektroauto'], wg.map
 <li><strong>A partner in a marriage-like relationship</strong>: presumed for two unmarried adults with the same main residence.</li>
 </ul>
 <p>Not counted: children, including adults with their own income, parents or grandparents living in the house, and flatmates who keep separate finances. Children under 18 only matter through the number of children, not their income; how that works is under ${h.a('kinder', 'children bonus')}.</p>
-<h2>The sum in three steps</h2>
+<h2>Household income in three steps</h2>
 <ol>
 <li>For each person in the household, find the ${h.P.foerderung.bescheide_je_person} most recent income tax assessments and read the line “zu versteuerndes Einkommen” on each.</li>
 <li>Average per person: add both figures and halve them.</li>
