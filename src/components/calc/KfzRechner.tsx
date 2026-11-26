@@ -47,7 +47,7 @@ export default function KfzRechner({ lang = 'de', methodHref, preset = {} }: Pro
       <div className="srg h-1.5" aria-hidden="true" />
       <div className={raster}>
         <form onSubmit={(ev) => ev.preventDefault()} className="space-y-5">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
             <NumberField id="kfz-kg" label={tx(lang, 'Zulässiges Gesamtgewicht', 'Permitted total weight')} value={zgg} onChange={setZgg} unit="kg" max={3500} lang={lang} help={tx(lang, 'Fahrzeugschein, Feld F.2', 'registration certificate, field F.2')} />
             <Toggle id="kfz-an" label={tx(lang, 'Antrieb', 'Drive')} value={an} onChange={setAn} options={[{ value: 'bev', label: tx(lang, 'Elektro', 'Electric') }, { value: 'phev', label: 'Plug-in' }]} />
           </div>

@@ -96,15 +96,17 @@ header nav[aria-label] img { background:#fff; border-radius:8px; padding:2px; }
 header nav[aria-label] .nav-dropdown-panel, header nav[aria-label] #mobile-menu { background:#fff !important; }
 header nav[aria-label] :is(.nav-dropdown-panel, #mobile-menu) :is(a,span,button,p,li,summary) { color:#0F172A !important; }
 /* Bandeau héros pleine largeur : H1 et chapeau en blanc */
-main :is(header,div:not(.mx-auto)):has(> h1) { background:#1A1A1A !important; border-image:linear-gradient(#1A1A1A 0 0) fill 0 / 0 / 4rem 100vmax 0; margin-bottom:0 !important; padding-top:.25rem !important; padding-bottom:.5rem !important; border-style:solid !important; border-width:0 !important; }
-main :is(header,div:not(.mx-auto)):has(> h1) :is(h1,p,li,span,small,strong,em,time,label,a,dt,dd,b,i) { color:#fff !important; }
-main :is(header,div:not(.mx-auto)):has(> h1) a { text-decoration:underline; text-decoration-color:#FFCE00; text-decoration-thickness:2px; }
-main :is(header,div:not(.mx-auto)):has(> h1) [class*="bg-"] { background:transparent !important; border-color:rgba(255,255,255,.6) !important; }
-main :is(header,div:not(.mx-auto)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) { background:#1A1A1A !important; border-image:linear-gradient(#1A1A1A 0 0) fill 0 / 0 / 0 100vmax 8rem; border-style:solid !important; border-width:0 !important; margin-top:0 !important; margin-bottom:0 !important; padding-top:.4rem; padding-bottom:.4rem; border-color:rgba(255,255,255,.35) !important; }
-main :is(header,div:not(.mx-auto)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) :is(p,h2,h3,span,strong,a,li,small,label,summary,dt,dd,b,em) { color:#fff !important; }
-main :is(header,div:not(.mx-auto)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) :is(li,a,div,dd,dt)[class*="bg-"] { background:transparent !important; border-color:rgba(255,255,255,.55) !important; }
-main :is(header,div:not(.mx-auto)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil])))[class*="bg-"] { background:#1A1A1A !important; }
-main :is(header,div:not(.mx-auto)):has(> h1):has(~ :is([data-outil], astro-island:has([data-outil]))) { border-image-outset:4rem 100vmax 8rem; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) { background:#1A1A1A !important; border-image:linear-gradient(#1A1A1A 0 0) fill 0 / 0 / 4rem 100vmax 0; margin-bottom:0 !important; padding-top:.25rem !important; padding-bottom:.5rem !important; border-style:solid !important; border-width:0 !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) :is(h1,p,li,span,small,strong,em,time,label,a,dt,dd,b,i) { color:#fff !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) a { text-decoration:underline; text-decoration-color:#FFCE00; text-decoration-thickness:2px; }
+/* Fil d'Ariane posé sur le haut du bandeau sombre : en blanc, sinon « Home » est noir sur noir */
+#main-content:has(:is(header,div:not(.mx-auto):not(.prose)) > h1) nav[aria-label] :is(a,span) { color:#fff !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) [class*="bg-"] { background:transparent !important; border-color:rgba(255,255,255,.6) !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) { background:#1A1A1A !important; border-image:linear-gradient(#1A1A1A 0 0) fill 0 / 0 / 0 100vmax 8rem; border-style:solid !important; border-width:0 !important; margin-top:0 !important; margin-bottom:0 !important; padding-top:.4rem; padding-bottom:.4rem; border-color:rgba(255,255,255,.35) !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) :is(p,h2,h3,span,strong,a,li,small,label,summary,dt,dd,b,em) { color:#fff !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) :is(li,a,div,dd,dt)[class*="bg-"] { background:transparent !important; border-color:rgba(255,255,255,.55) !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil])))[class*="bg-"] { background:#1A1A1A !important; }
+main :is(header,div:not(.mx-auto):not(.prose)):has(> h1):has(~ :is([data-outil], astro-island:has([data-outil]))) { border-image-outset:4rem 100vmax 8rem; }
 /* Le simulateur : carte blanche à bord haut épais de la 2e couleur ; le bandeau descend de 8rem derrière son haut (border-image, sans ombre) */
 main [data-outil] { background:#fff !important; border:0 !important; border-top:6px solid #FFCE00 !important; border-radius:14px !important; padding:.7rem 1.1rem 1.1rem !important; box-shadow:none !important; position:relative; margin-top:0 !important; margin-bottom:3.5rem !important; }
 main [data-outil] [data-outil] { border-top:0 !important; box-shadow:none !important; clip-path:none; padding:0 !important; margin:0 !important; }
@@ -115,12 +117,12 @@ main [aria-live] :is([class*="text-2xl"],[class*="text-3xl"],[class*="text-4xl"]
 main [data-outil] :is([class*="text-3xl"],[class*="text-4xl"],[class*="text-5xl"]):not(button):not(label) { color:#B5000B !important; }
 /* Sections alternées blanc / teinte, titres soulignés de l'accent */
 main [data-outil] ~ section:nth-of-type(odd), main [data-outil] ~ div.prose:nth-of-type(even) { background:#FFF6CC; box-shadow:0 0 0 100vmax #FFF6CC; clip-path:inset(0 -100vmax); padding-top:1.5rem; padding-bottom:1.5rem; }
-main h2:not([data-outil] h2):not(:is(header,div:not(.mx-auto)):has(> h1) ~ * h2) { color:#1A1A1A !important; border-left:8px solid #FFCE00; padding-left:.6rem; }
+main h2:not([data-outil] h2):not(:is(header,div:not(.mx-auto):not(.prose)):has(> h1) ~ * h2) { color:#1A1A1A !important; border-left:8px solid #FFCE00; padding-left:.6rem; }
 main h3:not([data-outil] h3) { color:#1A1A1A; }
 /* Boutons pleins, liens soulignés de couleur */
 main button[type="submit"], main :is(a,button):is([class~="bg-accent-500"],[class~="bg-accent-600"],[class~="bg-accent-700"]), main :is(a,button)[class*="bg-brand"], main :is(a,button)[class*="bg-primary"] { background:#FFCE00 !important; color:#111111 !important; border-color:#FFCE00 !important; border-radius:10px !important; font-weight:700; }
 main button[type="submit"]:hover, main :is(a,button):is([class~="bg-accent-600"],[class~="bg-accent-700"]):hover { background:#D9AF00 !important; }
-main :is(.prose a, p > a, li > a):not([class*="bg-"]):not(:is(header,div:not(.mx-auto)):has(> h1) *):not(:is(header,div:not(.mx-auto)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) *) { color:#1A1A1A !important; text-decoration:underline; text-decoration-color:#FFCE00; text-decoration-thickness:2px; text-underline-offset:3px; }
+main :is(.prose a, p > a, li > a):not([class*="bg-"]):not(:is(header,div:not(.mx-auto):not(.prose)):has(> h1) *):not(:is(header,div:not(.mx-auto):not(.prose)):has(> h1) ~ :not([data-outil]):not([data-outil] ~ *):not(:has([data-outil])):has(~ :is([data-outil], astro-island:has([data-outil]))) *) { color:#1A1A1A !important; text-decoration:underline; text-decoration-color:#FFCE00; text-decoration-thickness:2px; text-underline-offset:3px; }
 /* Encadrés et tableaux */
 main .bg-accent-50 { background:#FFF6CC !important; border-left:6px solid #FFCE00; }
 main table thead th { color:#1A1A1A !important; border-bottom-color:transparent !important; box-shadow:inset 0 -3px 0 #FFCE00; background:#FFF6CC !important; }

@@ -88,7 +88,7 @@ export default function PraemienRechner({ lang = 'de', methodHref, preset = {} }
             <NumberField id="pr-a1" label={tx(lang, 'zvE letzter Steuerbescheid', 'Taxable income, last assessment')} value={a1} onChange={setA1} unit="€" max={1000000} lang={lang} />
             <NumberField id="pr-b1" label={tx(lang, 'zvE vorletzter Bescheid', 'Assessment before that')} value={b1} onChange={setB1} unit="€" max={1000000} lang={lang} />
           </div>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
             <Toggle id="pr-an" label={tx(lang, 'Antrieb', 'Drive')} value={an} onChange={wechsleAntrieb} options={[{ value: 'bev', label: tx(lang, 'Elektro', 'Electric') }, { value: 'phev', label: 'Plug-in' }]} />
             <Toggle id="pr-p" label={tx(lang, 'Haushalt', 'Household')} value={paar} onChange={setPaar} options={[{ value: '0', label: tx(lang, 'Allein', 'Single') }, { value: '1', label: tx(lang, 'Paar', 'Couple') }]} />
           </div>
