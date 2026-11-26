@@ -19,7 +19,7 @@ export const AUTHOR_DESC: Record<string, string> = {"de": "Radif Partners rechne
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"de": ["Sozial gestaffelte E-Auto-Förderung (Richtlinie vom 19. Mai 2026)", "Zu versteuerndes Einkommen nach § 2 Abs. 5 EStG", "THG-Quote für Elektroautos (38. BImSchV)", "Kfz-Steuerbefreiung für Elektrofahrzeuge (§ 3d KraftStG)"], "en": ["Germany's income-based EV purchase grant (guideline of 19 May 2026)", "Taxable income under section 2(5) of the Income Tax Act", "GHG quota trading for electric cars (38th BImSchV)", "Vehicle tax exemption for electric cars (section 3d KraftStG)"]};
 export const CONTACT_EMAIL = "kontakt@stromerpraemie.de";
-export const THEME_COLOR = '#0B6B5A';
+export const THEME_COLOR = '#1A1A1A';
 export const LOGO_SYMBOL = 'eclair';
 export const BING_VERIFY_CODE = '';
 export const GOOGLE_VERIFY_CODE = '';
